@@ -26,17 +26,10 @@ markdown
 ​性能优化：图片懒加载、资源压缩（WebP格式）。
 2. 后台管理系统功能
 ​题目管理：
-​新增/编辑：表单支持富文本编辑器（如Quill.js）录入题目和解析。
+​新增/编辑：表单支持富文本编辑器录入题目和解析。
 ​批量操作：支持Excel导入、批量删除。
 ​权限控制：管理员登录验证（JWT令牌）。
 ​数据统计：题目访问量、用户行为分析（集成ECharts）。
 3. 后端API
 ​接口设计：RESTful风格，提供题目列表、详情、搜索接口。
-​数据库：MySQL存储题目数据，Redis缓存高频访问内容。
-三、技术栈
-模块	技术选型
-​H5前端​	Vue 3 + Vite + Element Plus
-​后台管理​	React + Ant Design Pro
-​后端​	Node.js (Koa) 或 Java (Spring Boot)
-​数据库​	MySQL + Redis（缓存）
-​部署​	Nginx + Docker
+​数据库：MySQL存储题目数据，Redis缓存高频访问内容

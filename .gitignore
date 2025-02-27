@@ -1,14 +1,16 @@
-# 通用忽略规则
+# 通用
 node_modules/
 dist/
 .env
 .DS_Store
+
+# 编辑器
 .idea/
-*.log
-
-# 数据库相关
-*.sqlite
-*.db
-
-# 编辑器文件
 .vscode/
+
+# 日志
+*.log
+npm-debug.log*
+
+# 本地数据库
+*.sqlite 

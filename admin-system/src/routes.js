@@ -2,7 +2,7 @@ export default [
   {
     path: '/questions',
     name: '题目管理',
-    icon: 'profile',
+    icon: 'book',
     routes: [
       {
         path: '/list',
@@ -16,4 +16,4 @@ export default [
       }
     ]
   }
-] 
+]; 
