@@ -1,0 +1,14 @@
+# 通用忽略规则
+node_modules/
+dist/
+.env
+.DS_Store
+.idea/
+*.log
+
+# 数据库相关
+*.sqlite
+*.db
+
+# 编辑器文件
+.vscode/
