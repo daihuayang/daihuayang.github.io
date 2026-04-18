@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 产品经理 | 杨大白</title>
+  <meta name="description" content="杨大白 - AI 产品经理的个人博客，专注于 AI 产品设计与实践">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: #1a1a25;
+      --accent: #6366f1;
+      --accent-glow: rgba(99, 102, 241, 0.4);
+      --text-primary: #f1f1f3;
+      --text-secondary: #a1a1aa;
+      --text-muted: #71717a;
+      --border: #27272a;
+      --gradient-1: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+      --gradient-2: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Background Effects */
+    .bg-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bg-glow {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      filter: blur(150px);
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bg-glow-1 {
+      top: -200px;
+      right: -200px;
+      background: var(--accent);
+    }
+
+    .bg-glow-2 {
+      bottom: -200px;
+      left: -200px;
+      background: #8b5cf6;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      background: rgba(10, 10, 15, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 600;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--text-primary);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-text h1 span {
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-text p {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      max-width: 500px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .tag {
+      padding: 0.5rem 1rem;
+      background: var(--gradient-2);
+      border: 1px solid var(--border);
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.875rem 1.75rem;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--gradient-1);
+      color: white;
+      box-shadow: 0 4px 20px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px var(--accent-glow);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-card);
+    }
+
+    /* Avatar */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .avatar-container {
+      position: relative;
+      width: 350px;
+      height: 350px;
+    }
+
+    .avatar-ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      background: linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
+                  var(--gradient-1) border-box;
+      animation: rotate 10s linear infinite;
+    }
+
+    .avatar-ring-2 {
+      position: absolute;
+      inset: 20px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      background: linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
+                  linear-gradient(135deg, #8b5cf6, #d946ef) border-box;
+      animation: rotate 15s linear infinite reverse;
+    }
+
+    .avatar-inner {
+      position: absolute;
+      inset: 40px;
+      background: var(--bg-card);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8rem;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Sections */
+    section {
+      padding: 6rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Blog Cards */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .blog-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 2rem;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .blog-card-meta {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .blog-card-category {
+      color: var(--accent);
+    }
+
+    .blog-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .blog-card p {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .blog-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .read-time {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .read-more {
+      font-size: 0.875rem;
+      color: var(--accent);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* AI Demo Section */
+    .ai-demo {
+      background: var(--bg-secondary);
+      border-radius: 2rem;
+      padding: 3rem;
+      border: 1px solid var(--border);
+    }
+
+    .ai-demo-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .ai-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--gradient-1);
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .ai-demo h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .ai-demo p {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+    }
+
+    .ai-conversation {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .ai-message {
+      max-width: 80%;
+      padding: 1rem 1.5rem;
+      border-radius: 1rem;
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+
+    .ai-message.user {
+      background: var(--accent);
+      color: white;
+      align-self: flex-end;
+      border-bottom-right-radius: 0.25rem;
+    }
+
+    .ai-message.assistant {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      align-self: flex-start;
+      border-bottom-left-radius: 0.25rem;
+    }
+
+    /* About Section */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .skills {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .skill-item {
+      background: var(--bg-card);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+    }
+
+    .skill-item h4 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-item p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .skill-bar {
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      margin-top: 0.75rem;
+      overflow: hidden;
+    }
+
+    .skill-bar-fill {
+      height: 100%;
+      background: var(--gradient-1);
+      border-radius: 2px;
+      transition: width 1s ease-out;
+    }
+
+    /* Contact Section */
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.3s;
+    }
+
+    .contact-link:hover {
+      color: var(--accent);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-text p {
+        margin: 0 auto 2rem;
+      }
+
+      .tags, .cta-buttons {
+        justify-content: center;
+      }
+
+      .avatar-container {
+        width: 250px;
+        height: 250px;
+      }
+
+      .avatar-inner {
+        font-size: 5rem;
+        inset: 30px;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* Page Views */
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    /* Scroll animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <nav>
+    <div class="nav-content">
+      <div class="logo">AI PM</div>
+      <ul class="nav-links">
+        <li><a href="#" class="active" data-page="home">首页</a></li>
+        <li><a href="#" data-page="blog">博客</a></li>
+        <li><a href="#" data-page="about">关于</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Home Page -->
+  <div id="home" class="page active">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>我是 <span>杨大白</span><br>AI 产品经理</h1>
+            <p>专注 AI 产品设计与实践，用产品思维探索大模型应用边界，让 AI 技术真正服务于人与业务。</p>
+            <div class="tags">
+              <span class="tag">AI Product</span>
+              <span class="tag">LLM Apps</span>
+              <span class="tag">User Research</span>
+              <span class="tag">Data Analysis</span>
+            </div>
+            <div class="cta-buttons">
+              <a href="#" class="btn btn-primary" data-page="blog">阅读博客</a>
+              <a href="#" class="btn btn-secondary" data-page="about">了解更多</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="avatar-container">
+              <div class="avatar-ring"></div>
+              <div class="avatar-ring-2"></div>
+              <div class="avatar-inner">🤖</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ai-demo">
+      <div class="container">
+        <div class="section-header">
+          <h2>🤖 AI PM 助手</h2>
+          <p>随时为你解答 AI 产品相关问题</p>
+        </div>
+        <div class="ai-demo">
+          <div class="ai-conversation">
+            <div class="ai-message user">如何判断一个 AI 产品是否适合落地？</div>
+            <div class="ai-message assistant">判断 AI 产品落地可行性主要看三点：<br><br>1. <strong>场景匹配度</strong> - 是否有明确的高频场景<br>2. <strong>技术成熟度</strong> - 当前 AI 能力能否满足核心需求<br>3. <strong>商业价值</strong> - 能否带来可量化的收益或效率提升</div>
+            <div class="ai-message user">如何做 AI 产品的用户调研？</div>
+            <div class="ai-message assistant">AI 产品用户调研要注意：<br><br>1. <strong>区分期望与现实</strong> - 用户对 AI 的期望往往偏高<br>2. <strong>关注工作流</strong> - 了解用户当前如何完成任务<br>3. <strong>A/B 测试</strong> - 用数据验证而非纯访谈</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Blog Page -->
+  <div id="blog" class="page">
+    <section class="hero" style="min-height: auto; padding-bottom: 2rem;">
+      <div class="container">
+        <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
+          <h2>📝 博客文章</h2>
+          <p>分享 AI 产品思考与实践</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top: 0;">
+      <div class="container">
+        <div class="blog-grid">
+          <article class="blog-card" onclick="openArticle(1)">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">产品思考</span>
+              <span>2026-03-15</span>
+            </div>
+            <h3>从 0 到 1 构建 AI 产品的思考框架</h3>
+            <p>本文总结了我在多个 AI 项目中沉淀的产品方法论，包括需求挖掘、技术选型、迭代优化等关键环节。</p>
+            <div class="blog-card-footer">
+              <span class="read-time">阅读 8 分钟</span>
+              <span class="read-more">阅读全文 →</span>
+            </div>
+          </article>
+
+          <article class="blog-card" onclick="openArticle(2)">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">LLM 应用</span>
+              <span>2026-02-28</span>
+            </div>
+            <h3>Prompt Engineering 实战技巧</h3>
+            <p>好的 Prompt 是 AI 产品体验的关键。这篇文章分享 10 个我常用的 Prompt 优化技巧。</p>
+            <div class="blog-card-footer">
+              <span class="read-time">阅读 12 分钟</span>
+              <span class="read-more">阅读全文 →</span>
+            </div>
+          </article>
+
+          <article class="blog-card" onclick="openArticle(3)">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">用户研究</span>
+              <span>2026-02-10</span>
+            </div>
+            <h3>AI 产品用户访谈的避坑指南</h3>
+            <p>用户对 AI 的期望往往不切实际，如何在访谈中识别真实需求？这有我的经验总结。</p>
+            <div class="blog-card-footer">
+              <span class="read-time">阅读 6 分钟</span>
+              <span class="read-more">阅读全文 →</span>
+            </div>
+          </article>
+
+          <article class="blog-card" onclick="openArticle(4)">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">行业观察</span>
+              <span>2026-01-20</span>
+            </div>
+            <h3>2026 年 AI 产品趋势预测</h3>
+            <p>基于对国内外 AI 产品的持续观察，我对 2026 年的 AI 产品趋势做了系统预测。</p>
+            <div class="blog-card-footer">
+              <span class="read-time">阅读 10 分钟</span>
+              <span class="read-more">阅读全文 →</span>
+            </div>
+          </article>
+
+          <article class="blog-card" onclick="openArticle(5)">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">产品复盘</span>
+              <span>2026-01-05</span>
+            </div>
+            <h3>一次失败 AI 项目的深度复盘</h3>
+            <p>失败是最好的老师。这篇文章复盘了我主导的一个失败 AI 项目，以及从中获得的关键教训。</p>
+            <div class="blog-card-footer">
+              <span class="read-time">阅读 15 分钟</span>
+              <span class="read-more">阅读全文 →</span>
+            </div>
+          </article>
+
+          <article class="blog-card" onclick="openArticle(6)">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">工具推荐</span>
+              <span>2025-12-18</span>
+            </div>
+            <h3>AI PM 必备工具清单</h3>
+            <p>从原型设计到数据分析，这些工具帮我提升了 3 倍工作效率。</p>
+            <div class="blog-card-footer">
+              <span class="read-time">阅读 7 分钟</span>
+              <span class="read-more">阅读全文 →</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- About Page -->
+  <div id="about" class="page">
+    <section class="hero" style="min-height: auto; padding-bottom: 2rem;">
+      <div class="container">
+        <div class="section-header">
+          <h2>关于我</h2>
+          <p>一个热爱 AI 与产品的互联网人</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top: 0;">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-text">
+            <h3>👋 你好</h3>
+            <p>我是杨大白，一个专注于 AI 产品方向的互联网产品经理。目前在某科技公司负责 AI 产品研发工作，主导过多个大模型应用的从 0 到 1。</p>
+            <p>在这之前，我在多家公司做过产品经理，从社交产品到企业服务，积累了丰富的产品经验。最近两年，我把重心转向 AI 产品方向，深度参与了几个 AI 项目的全流程。</p>
+            <p>我相信好的 AI 产品应该是：<strong>有用、可用、可规模化</strong>。我的目标是用产品思维让 AI 技术真正服务于人和业务。</p>
+            
+            <div class="contact-links">
+              <a href="#" class="contact-link">📧 895115762@qq.com</a>
+              <a href="#" class="contact-link">🌐 GitHub</a>
+            </div>
+          </div>
+          
+          <div class="skills">
+            <h3 style="margin-bottom: 1.5rem;">🎯 核心能力</h3>
+            
+            <div class="skill-item">
+              <h4>AI 产品设计</h4>
+              <p>大模型应用设计、Agent 产品规划、RAG 系统设计</p>
+              <div class="skill-bar"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+            </div>
+
+            <div class="skill-item">
+              <h4>用户研究</h4>
+              <p>需求挖掘、用户访谈、数据分析、AB 测试</p>
+              <div class="skill-bar"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+            </div>
+
+            <div class="skill-item">
+              <h4>技术理解</h4>
+              <p>LLM 原理、Prompt Engineering、模型评估</p>
+              <div class="skill-bar"><div class="skill-bar-fill" style="width: 75%;"></div></div>
+            </div>
+
+            <div class="skill-item">
+              <h4>项目管理</h4>
+              <p>跨团队协作、敏捷开发、里程碑规划</p>
+              <div class="skill-bar"><div class="skill-bar-fill" style="width: 88%;"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 杨大白 | 用心做 AI 产品</p>
+    </div>
+  </footer>
+
+  <script>
+    // Navigation
+    document.querySelectorAll('[data-page]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetPage = link.dataset.page;
+        
+        // Update nav
+        document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+        document.querySelector(`.nav-links a[data-page="${targetPage}"]`)?.classList.add('active');
+        
+        // Show page
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(targetPage)?.classList.add('active');
+        
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    // Article click handler
+    function openArticle(id) {
+      alert(`文章 ${id} 详情页开发中...`);
+    }
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Animate skill bars on scroll
+    const skillObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const bar = entry.target.querySelector('.skill-bar-fill');
+          if (bar) {
+            bar.style.width = bar.style.width;
+          }
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.skill-item').forEach(item => skillObserver.observe(item));
+  </script>
+</body>
+</html>
