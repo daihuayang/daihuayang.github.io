@@ -3,1114 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>杨大白 - AI 产品经理</title>
-  <meta name="description" content="杨大白 - AI 产品经理的个人博客，分享 AI 产品设计、LLM 应用开发、用户研究方法论和 AI 行业观察">
-  <meta name="keywords" content="AI产品经理, AI产品设计, LLM应用, 大模型, 用户研究, Prompt Engineering, AI博客">
-  
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://daihuayang.github.io/">
-  <meta property="og:title" content="杨大白 - AI 产品经理">
-  <meta property="og:description" content="专注 AI 产品设计与实践">
-  <meta property="og:image" content="https://daihuayang.github.io/og-image.png">
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="杨大白 - AI 产品经理">
-  <meta name="twitter:description" content="专注 AI 产品设计与实践">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
+  <title>夜白 · AI产品经理</title>
+  <meta name="description" content="夜白 - AI产品经理的个人博客，专注于 AI 产品设计与实践">
+  <meta name="theme-color" content="#0B0B0E">
+
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
-  
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --bg: #ffffff;
-      --text: #000000;
-      --text-secondary: #666666;
-      --text-muted: #999999;
-      --border: #e5e5e5;
-      --hover: #f5f5f5;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* Navigation */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 2rem 4rem;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-content {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      text-decoration: none;
-      color: var(--text);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 3rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 500;
-      transition: color 0.2s;
-      position: relative;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--text);
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--text);
-      transition: width 0.3s;
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
-      width: 100%;
-    }
-
-    /* Mobile Menu */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.5rem;
-    }
-
-    .hamburger span {
-      display: block;
-      width: 24px;
-      height: 1.5px;
-      background: var(--text);
-      transition: all 0.3s;
-    }
-
-    /* Container */
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 4rem;
-    }
-
-    /* Page Views */
-    .page {
-      display: none;
-      min-height: 100vh;
-      padding-top: 100px;
-    }
-
-    .page.active {
-      display: block;
-    }
-
-    /* Hero Section */
-    .hero {
-      min-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 4rem 0;
-    }
-
-    .hero h1 {
-      font-size: clamp(3rem, 8vw, 7rem);
-      font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-      margin-bottom: 2rem;
-    }
-
-    .hero h1 .highlight {
-      color: var(--text-secondary);
-    }
-
-    .hero-subtitle {
-      font-size: clamp(1.125rem, 2vw, 1.5rem);
-      color: var(--text-secondary);
-      max-width: 600px;
-      line-height: 1.7;
-      font-weight: 400;
-      margin-bottom: 3rem;
-    }
-
-    .hero-tags {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .tag {
-      padding: 0.5rem 1.25rem;
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      font-size: 0.875rem;
-      color: var(--text-secondary);
-      font-weight: 500;
-      transition: all 0.2s;
-    }
-
-    .tag:hover {
-      border-color: var(--text);
-      color: var(--text);
-    }
-
-    /* Section Headers */
-    .section-header {
-      padding: 6rem 0 3rem;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 3rem;
-    }
-
-    .section-header h2 {
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-    }
-
-    .section-header p {
-      color: var(--text-secondary);
-      font-size: 1.125rem;
-      margin-top: 1rem;
-    }
-
-    /* Blog List */
-    .blog-list {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .blog-item {
-      padding: 2.5rem 0;
-      border-bottom: 1px solid var(--border);
-      cursor: pointer;
-      transition: all 0.2s;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
-    .blog-item:hover {
-      padding-left: 1rem;
-    }
-
-    .blog-item:hover .blog-item-title {
-      color: var(--text-secondary);
-    }
-
-    .blog-item-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 0.75rem;
-      gap: 2rem;
-    }
-
-    .blog-item-title {
-      font-size: 1.75rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      transition: color 0.2s;
-      flex: 1;
-    }
-
-    .blog-item-date {
-      color: var(--text-muted);
-      font-size: 0.875rem;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-
-    .blog-item-meta {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
-
-    .blog-item-category {
-      color: var(--text-secondary);
-      font-size: 0.875rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .blog-item-desc {
-      color: var(--text-secondary);
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-top: 0.5rem;
-    }
-
-    /* Article Page */
-    .article-page {
-      display: none;
-      padding-top: 120px;
-      min-height: 100vh;
-    }
-
-    .article-page.active {
-      display: block;
-    }
-
-    .article-container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem 4rem;
-    }
-
-    .article-back {
-      display: inline-block;
-      color: var(--text-secondary);
-      text-decoration: none;
-      margin-bottom: 3rem;
-      font-size: 0.875rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-
-    .article-back:hover {
-      color: var(--text);
-    }
-
-    .article-header {
-      margin-bottom: 4rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .article-header h1 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-    }
-
-    .article-meta {
-      display: flex;
-      gap: 2rem;
-      color: var(--text-muted);
-      font-size: 0.875rem;
-      font-weight: 500;
-    }
-
-    .article-content {
-      font-size: 1.125rem;
-      line-height: 1.8;
-      color: var(--text-secondary);
-    }
-
-    .article-content h2 {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--text);
-      margin: 3rem 0 1.5rem;
-      letter-spacing: -0.02em;
-    }
-
-    .article-content h3 {
-      font-size: 1.375rem;
-      font-weight: 600;
-      color: var(--text);
-      margin: 2.5rem 0 1rem;
-    }
-
-    .article-content p {
-      margin-bottom: 1.5rem;
-    }
-
-    .article-content strong {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .article-content ul,
-    .article-content ol {
-      margin-bottom: 1.5rem;
-      padding-left: 2rem;
-    }
-
-    .article-content li {
-      margin-bottom: 0.5rem;
-    }
-
-    .article-content blockquote {
-      border-left: 2px solid var(--text);
-      padding-left: 2rem;
-      margin: 2rem 0;
-      font-style: italic;
-      color: var(--text);
-    }
-
-    .article-content pre {
-      background: var(--hover);
-      padding: 1.5rem;
-      border-radius: 4px;
-      overflow-x: auto;
-      margin-bottom: 1.5rem;
-      font-size: 0.875rem;
-      line-height: 1.6;
-    }
-
-    .article-content code {
-      font-family: 'SF Mono', 'Fira Code', monospace;
-      font-size: 0.875em;
-    }
-
-    .article-content p code {
-      background: var(--hover);
-      padding: 0.2rem 0.5rem;
-      border-radius: 3px;
-    }
-
-    /* About Page */
-    .about-content {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 6rem;
-      padding: 4rem 0;
-    }
-
-    .about-text h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.02em;
-    }
-
-    .about-text p {
-      color: var(--text-secondary);
-      font-size: 1.125rem;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 3rem;
-    }
-
-    .contact-link {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 500;
-      transition: color 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .contact-link:hover {
-      color: var(--text);
-    }
-
-    .skills {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .skill-item h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.01em;
-    }
-
-    .skill-item p {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      margin: 0;
-    }
-
-    /* Footer */
-    footer {
-      padding: 4rem;
-      border-top: 1px solid var(--border);
-      margin-top: 6rem;
-    }
-
-    .footer-content {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-text {
-      color: var(--text-muted);
-      font-size: 0.875rem;
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-      nav {
-        padding: 1.5rem 2rem;
-      }
-
-      .container {
-        padding: 0 2rem;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .nav-links {
-        position: fixed;
-        top: 80px;
-        left: 0;
-        right: 0;
-        background: var(--bg);
-        flex-direction: column;
-        padding: 2rem;
-        gap: 1.5rem;
-        transform: translateY(-100%);
-        opacity: 0;
-        pointer-events: none;
-        transition: all 0.3s;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .nav-links.active {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: all;
-      }
-
-      .hero h1 {
-        font-size: clamp(2.5rem, 10vw, 4rem);
-      }
-
-      .about-content {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
-
-      .article-container {
-        padding: 2rem;
-      }
-
-      .blog-item-title {
-        font-size: 1.375rem;
-      }
-
-      .blog-item-header {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      footer {
-        padding: 2rem;
-      }
-
-      .footer-content {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-      }
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .fade-in {
-      animation: fadeIn 0.6s ease-out;
-    }
-  </style>
+  <link rel="icon" type="image/png" href="./assets/logo.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="夜白 · AI 产品经理">
+  <meta property="og:description" content="专注 AI 产品设计与实践，用产品思维探索大模型应用边界">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <nav>
-    <div class="nav-content">
-      <a href="#" class="logo" data-page="home">杨大白</a>
-      <ul class="nav-links">
-        <li><a href="#" class="active" data-page="home">首页</a></li>
-        <li><a href="#" data-page="blog">博客</a></li>
-        <li><a href="#" data-page="about">关于</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </nav>
+  <!-- =================== BACKGROUND LAYERS =================== -->
+  <div class="bg-halftone" aria-hidden="true"></div>
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div class="bg-grain" aria-hidden="true"></div>
+  <div class="bg-vignette" aria-hidden="true"></div>
+  <!-- decorative hairlines -->
+  <div class="accent-line accent-line--top-left" aria-hidden="true"></div>
+  <div class="accent-line accent-line--bottom-right" aria-hidden="true"></div>
 
-  <!-- Home Page -->
-  <div id="home" class="page active">
-    <div class="container">
-      <section class="hero">
-        <h1>
-          AI 产品经理<br>
-          <span class="highlight">专注产品设计与实践</span>
+  <!-- =================== SHELL =================== -->
+  <div class="shell">
+
+    <!-- Header -->
+    <header class="nav">
+      <a href="/" class="nav__brand" aria-label="夜白 · AI 产品经理">
+        <span class="brand-logo brand-logo--horizontal"></span>
+      </a>
+      <a href="/blog.html" class="nav__cta" target="_self">
+        <span>Blog</span>
+        <svg width="14" height="10" viewBox="0 0 14 10" aria-hidden="true">
+          <path d="M0 5h12m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="square"/>
+        </svg>
+      </a>
+    </header>
+
+    <!-- Main stage -->
+    <main class="stage">
+      <!-- Top-left meta rail -->
+      <div class="rail rail--tl">
+        <div class="rail__label">§ AI PM</div>
+        <div class="rail__value">AI · Product</div>
+      </div>
+      <!-- Top-right meta rail -->
+      <div class="rail rail--tr">
+        <div class="rail__label">Est.</div>
+        <div class="rail__value">2026 — Present</div>
+      </div>
+      <!-- Bottom-left -->
+      <div class="rail rail--bl">
+        <div class="rail__label">Based</div>
+        <div class="rail__value">Shanghai, China</div>
+      </div>
+      <!-- Bottom-right -->
+      <div class="rail rail--br">
+        <div class="rail__label">Contact</div>
+        <div class="rail__value">yebaigod@qq.com</div>
+      </div>
+
+      <!-- CENTER: logo mark (static body, orbiting rings, constant RGB glitch) -->
+      <div class="mark-wrap" id="markWrap">
+        <div class="mark-halo" aria-hidden="true"></div>
+
+        <!-- Orbit rings -->
+        <svg class="orbit orbit--outer" viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="49" fill="none" stroke="rgba(230,0,18,0.45)" stroke-width="0.25" stroke-dasharray="0.6 2.2" />
+        </svg>
+        <svg class="orbit orbit--mid" viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="46" fill="none" stroke="rgba(237,232,221,0.16)" stroke-width="0.3" stroke-dasharray="3 5" />
+          <circle cx="50" cy="1" r="0.8" fill="#E60012" />
+          <circle cx="99" cy="50" r="0.5" fill="rgba(237,232,221,0.5)" />
+        </svg>
+        <svg class="orbit orbit--inner" viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(237,232,221,0.08)" stroke-width="0.2" stroke-dasharray="0.3 1" />
+        </svg>
+
+        <!-- Static logo body with AI icon -->
+        <div class="mark" aria-hidden="true">
+          <div class="mark-icon">
+          <svg viewBox="0 0 312 152" xmlns="http://www.w3.org/2000/svg">
+            <path d="M236,128 C249.989659,128 263.072812,122.466293 272.769553,112.769553 C275.181601,110.357504 277.353035,107.715046 279.249255,104.882539 C282.936086,99.3752771 290.389371,97.8995263 295.896632,101.586357 C301.403894,105.273188 302.879645,112.726473 299.192814,118.233735 C296.42508,122.368082 293.257668,126.222563 289.740115,129.740115 C275.58712,143.893111 256.420281,152 236,152 C194.026359,152 160,117.973641 160,76 C160,34.026359 194.026359,0 236,0 C277.553905,0 311.318678,33.3492345 311.989818,74.743201 L312,76 C312,82.5254567 306.791456,87.8343928 300.304975,87.9962001 L300,88 L185.391637,88.0007716 C190.809227,110.933983 211.411623,128 236,128 Z M236,24 C211.411265,24 190.808628,41.0665137 185.391401,64.0002291 L286.608599,64.0002291 C281.191372,41.0665137 260.588735,24 236,24 Z"/>
+            <path d="M136,0 C142.627417,0 148,5.372583 148,12 C148,48.7832078 121.162425,79.2981642 86.0001919,85.031953 L86,140 C86,146.627417 80.627417,152 74,152 C67.372583,152 62,146.627417 62,140 L62.0008055,85.0321156 C26.8380823,79.2987413 0,48.7835556 0,12 C0,5.372583 5.372583,0 12,0 C18.627417,0 24,5.372583 24,12 C24,39.6142375 46.3857625,62 74,62 C101.614237,62 124,39.6142375 124,12 C124,5.372583 129.372583,0 136,0 Z"/>
+          </svg>
+        </div>
+        </div>
+      </div>
+
+      <!-- Center: name + slogan -->
+      <div class="wordmark">
+        <div class="wordmark__line">
+          <span class="wordmark__marker"></span>
+          <span class="wordmark__label">§ AI Product Manager</span>
+        </div>
+        <h1 class="wordmark__title">
+          <span class="wordmark__en">YeBai</span>
+          <span class="wordmark__sep">·</span>
+          <span class="wordmark__cn">夜白</span>
         </h1>
-        <p class="hero-subtitle">
-          用产品思维探索大模型应用边界，让 AI 技术真正服务于人与业务。分享 AI 产品设计、LLM 应用开发和用户研究的思考与实践。
-        </p>
-        <div class="hero-tags">
-          <span class="tag">AI Product</span>
-          <span class="tag">LLM Apps</span>
-          <span class="tag">User Research</span>
-          <span class="tag">Data Analysis</span>
-        </div>
-      </section>
-    </div>
+        <p class="wordmark__slogan">专注 AI 产品设计与实践<span class="wordmark__slogan-en"> / Stay Curious</span></p>
+      </div>
+    </main>
+
+    <!-- Footer / legal strip -->
+    <footer class="legal">
+      <span class="legal__dot"></span>
+      <span>© 2026 夜白</span>
+      <span class="legal__divider"></span>
+      <span>用心做 AI 产品</span>
+    </footer>
+
   </div>
 
-  <!-- Blog Page -->
-  <div id="blog" class="page">
-    <div class="container">
-      <div class="section-header">
-        <h2>博客文章</h2>
-        <p>分享 AI 产品思考与实践</p>
-      </div>
-      <div class="blog-list" id="blogList">
-        <!-- Blog items will be generated by JavaScript -->
-      </div>
-    </div>
-  </div>
-
-  <!-- About Page -->
-  <div id="about" class="page">
-    <div class="container">
-      <div class="section-header">
-        <h2>关于</h2>
-      </div>
-      <div class="about-content">
-        <div class="about-text">
-          <h3>你好</h3>
-          <p>
-            我是杨大白，一个专注于 AI 产品方向的互联网产品经理。目前在某科技公司负责 AI 产品研发工作，主导过多个大模型应用的从 0 到 1。
-          </p>
-          <p>
-            在这之前，我在多家公司做过产品经理，从社交产品到企业服务，积累了丰富的产品经验。最近两年，我把重心转向 AI 产品方向，深度参与了几个 AI 项目的全流程。
-          </p>
-          <p>
-            我相信好的 AI 产品应该是：有用、可用、可规模化。我的目标是用产品思维让 AI 技术真正服务于人和业务。
-          </p>
-          
-          <div class="contact-links">
-            <a href="mailto:895115762@qq.com" class="contact-link">📧 895115762@qq.com</a>
-            <a href="https://github.com/daihuayang" target="_blank" rel="noopener noreferrer" class="contact-link">🌐 GitHub</a>
-            <a href="#" class="contact-link">💼 LinkedIn</a>
-          </div>
-        </div>
-        
-        <div class="skills">
-          <div class="skill-item">
-            <h4>AI 产品设计</h4>
-            <p>大模型应用设计、Agent 产品规划、RAG 系统设计</p>
-          </div>
-          <div class="skill-item">
-            <h4>用户研究</h4>
-            <p>需求挖掘、用户访谈、数据分析、AB 测试</p>
-          </div>
-          <div class="skill-item">
-            <h4>技术理解</h4>
-            <p>LLM 原理、Prompt Engineering、模型评估</p>
-          </div>
-          <div class="skill-item">
-            <h4>项目管理</h4>
-            <p>跨团队协作、敏捷开发、里程碑规划</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Article Page -->
-  <div id="article-page" class="article-page">
-    <div class="article-container">
-      <a class="article-back" onclick="closeArticle()">← 返回</a>
-      <div class="article-header">
-        <h1 id="article-title"></h1>
-        <div class="article-meta">
-          <span id="article-date"></span>
-          <span id="article-category"></span>
-          <span id="article-readtime"></span>
-        </div>
-      </div>
-      <div class="article-content" id="article-content">
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <div class="footer-content">
-      <div class="footer-text">© 2026 杨大白</div>
-      <div class="footer-text">用心做 AI 产品</div>
-    </div>
-  </footer>
-
-  <script>
-    // 汉堡菜单
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('active');
-    });
-
-    // 导航功能
-    document.querySelectorAll('[data-page]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetPage = link.dataset.page;
-        navigateToPage(targetPage);
-        
-        // 关闭移动端菜单
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-      });
-    });
-    
-    function navigateToPage(pageName) {
-      // 隐藏文章页
-      document.getElementById('article-page').classList.remove('active');
-      
-      // 更新导航
-      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-      document.querySelector(`.nav-links a[data-page="${pageName}"]`)?.classList.add('active');
-      
-      // 显示页面
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      document.getElementById(pageName)?.classList.add('active');
-      
-      // 滚动到顶部
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // 文章数据
-    const articles = [
-      {
-        id: 1,
-        title: '从 0 到 1 构建 AI 产品的思考框架',
-        date: '2026-03-15',
-        category: '产品思考',
-        readTime: '8 分钟',
-        desc: '总结了我在多个 AI 项目中沉淀的产品方法论，包括需求挖掘、技术选型、迭代优化等关键环节。',
-        content: `
-          <p>在经历了多个 AI 项目的打磨后，我总结出了一套适用于 AI 产品从 0 到 1 的思考框架。这套框架帮助我在面对不确定性时，能够系统性地分析和决策。</p>
-          
-          <h2>一、需求挖掘：找到真问题</h2>
-          <p>AI 产品最容易犯的错误就是「拿着锤子找钉子」。在动手之前，我们必须回答三个核心问题：</p>
-          <ul>
-            <li><strong>用户现在的解决方案是什么？</strong> - 了解现有工作流，找到痛点所在</li>
-            <li><strong>AI 能带来多大的提升？</strong> - 是 10% 的优化还是 10 倍的突破？</li>
-            <li><strong>这个场景是否高频且刚需？</strong> - 低频场景很难支撑 AI 的投入成本</li>
-          </ul>
-          
-          <h2>二、技术选型：匹配场景与能力</h2>
-          <p>不是所有场景都需要大模型。选择合适的技术方案至关重要：</p>
-          <ol>
-            <li><strong>规则引擎</strong> - 适用于逻辑明确、容错率低的场景</li>
-            <li><strong>传统 ML</strong> - 适用于结构化数据、预测类任务</li>
-            <li><strong>LLM</strong> - 适用于自然语言理解、内容生成、复杂推理</li>
-          </ol>
-          
-          <blockquote>技术选型的黄金法则：用最简单的方案解决 80% 的问题，剩下的 20% 再考虑复杂方案。</blockquote>
-          
-          <h2>三、迭代优化：数据驱动的飞轮</h2>
-          <p>AI 产品不是一次性交付，而是持续优化的过程。建立数据飞轮：</p>
-          <ul>
-            <li>收集用户反馈和使用数据</li>
-            <li>分析 bad cases，找出模型短板</li>
-            <li>优化 Prompt 或微调模型</li>
-            <li>A/B 测试验证效果</li>
-            <li>回到第一步，持续循环</li>
-          </ul>
-          
-          <h2>四、关键教训</h2>
-          <p>在实践中，我踩过的几个坑：</p>
-          <ul>
-            <li><strong>不要过度承诺 AI 能力</strong> - 管理用户期望比技术实现更重要</li>
-            <li><strong>重视评估体系</strong> - 没有量化指标，就无法证明产品价值</li>
-            <li><strong>关注延迟和成本</strong> - 再好的模型，如果太慢或太贵，都无法落地</li>
-          </ul>
-          
-          <p>这套框架不是一成不变的，但它可以作为一个起点，帮助你更系统地思考 AI 产品的构建过程。</p>
-        `
-      },
-      {
-        id: 2,
-        title: 'Prompt Engineering 实战技巧',
-        date: '2026-02-28',
-        category: 'LLM 应用',
-        readTime: '12 分钟',
-        desc: '好的 Prompt 是 AI 产品体验的关键。分享 10 个我常用的 Prompt 优化技巧。',
-        content: `
-          <p>Prompt 是 AI 产品体验的核心。一个好的 Prompt 能让模型表现提升数倍。以下是我在实践中总结的 10 个技巧。</p>
-          
-          <h2>1. 角色设定：给 AI 一个身份</h2>
-          <p><strong>错误示例：</strong>「帮我写一段文案」</p>
-          <p><strong>正确示例：</strong>「你是一位资深文案专家，擅长撰写科技产品的营销文案。请为一款 AI 助手产品写一段推广文案...」</p>
-          
-          <h2>2. 明确任务：具体比模糊好</h2>
-          <p>避免模糊的指令，给出明确的要求：</p>
-          <ul>
-            <li>指定输出格式（列表、表格、JSON）</li>
-            <li>限定字数范围</li>
-            <li>说明目标受众</li>
-          </ul>
-          
-          <h2>3. 提供示例：Few-shot Learning</h2>
-          <p>给模型 1-3 个示例，效果会显著提升：</p>
-          <pre><code>示例1：
-输入：产品是智能音箱
-输出：让音乐无处不在，让智能触手可及
-
-示例2：
-输入：产品是 AI 翻译器
-输出：跨越语言障碍，沟通无国界
-
-请为以下产品写文案：AI 笔记助手</code></pre>
-
-          <h2>4. 分步思考：Chain of Thought</h2>
-          <p>对于复杂任务，让模型分步思考：</p>
-          <p>「请按照以下步骤分析：1）用户的核心需求是什么 2）现有方案的不足 3）AI 能带来的改进 4）最终建议」</p>
-
-          <h2>5. 设置约束：避免幻觉</h2>
-          <p>明确告诉模型什么不能做：</p>
-          <ul>
-            <li>「如果信息不足，请明确说明，不要编造」</li>
-            <li>「只基于提供的内容回答，不要使用外部知识」</li>
-          </ul>
-
-          <h2>6-10. 其他关键技巧</h2>
-          <ul>
-            <li><strong>6. 温度参数调整</strong> - 创意任务用 0.7-0.9，事实任务用 0.1-0.3</li>
-            <li><strong>7. 结构化输出</strong> - 要求 JSON 或 Markdown 格式，方便程序处理</li>
-            <li><strong>8. 迭代优化</strong> - 根据输出结果不断调整 Prompt</li>
-            <li><strong>9. 建立 Prompt 库</strong> - 沉淀可复用的模板</li>
-            <li><strong>10. 评估体系</strong> - 建立自动化测试，监控 Prompt 效果</li>
-          </ul>
-
-          <blockquote>记住：Prompt Engineering 不是一次性工作，而是持续的优化过程。</blockquote>
-        `
-      },
-      {
-        id: 3,
-        title: 'AI 产品用户访谈的避坑指南',
-        date: '2026-02-10',
-        category: '用户研究',
-        readTime: '6 分钟',
-        desc: '用户对 AI 的期望往往不切实际，如何在访谈中识别真实需求？经验总结。',
-        content: `
-          <p>AI 产品的用户访谈与传统产品有很大不同。用户对 AI 的认知和期望往往不切实际，如何在访谈中识别真实需求？这是我的经验总结。</p>
-
-          <h2>坑一：用户对 AI 的期望过高</h2>
-          <p><strong>现象：</strong>「我希望它能完全理解我的意图，像人一样聪明」</p>
-          <p><strong>对策：</strong>在访谈前展示当前 AI 的能力边界，让用户基于现实反馈，而非幻想。</p>
-
-          <h2>坑二：用户说不清自己的需求</h2>
-          <p><strong>现象：</strong>用户描述的需求往往是解决方案，而非问题本身。</p>
-          <p><strong>对策：</strong>使用「5 Why」方法，追问到底：</p>
-          <ul>
-            <li>你需要这个功能 → 为什么？</li>
-            <li>因为现在太慢了 → 慢在哪里？</li>
-            <li>因为要手动整理数据 → 能具体说说过程吗？</li>
-          </ul>
-
-          <h2>坑三：访谈场景与实际使用脱节</h2>
-          <p><strong>现象：</strong>用户在访谈时说「我会用」，但实际并不用。</p>
-          <p><strong>对策：</strong>不要只问「你会不会用」，而是：</p>
-          <ul>
-            <li>观察用户当前的工作流</li>
-            <li>让用户现场演示现有做法</li>
-            <li>计算时间成本，验证 AI 的价值</li>
-          </ul>
-
-          <h2>实战技巧</h2>
-          <h3>1. 先观察，后提问</h3>
-          <p>让用户先完成任务，再问感受。行为比语言更真实。</p>
-
-          <h3>2. 关注痛点，而非功能</h3>
-          <p>不要问「你需要什么功能」，而是问「你现在最头疼什么」。</p>
-
-          <h3>3. 量化价值</h3>
-          <p>「如果这个功能能节省你每天 30 分钟，对你的工作有多大帮助？」</p>
-
-          <blockquote>用户调研的核心：听其言，观其行，算其值。</blockquote>
-        `
-      },
-      {
-        id: 4,
-        title: '2026 年 AI 产品趋势预测',
-        date: '2026-01-20',
-        category: '行业观察',
-        readTime: '10 分钟',
-        desc: '基于对国内外 AI 产品的持续观察，对 2026 年的 AI 产品趋势做了系统预测。',
-        content: `
-          <p>基于对国内外 AI 产品的持续观察，我对 2026 年的 AI 产品趋势做出以下预测。</p>
-
-          <h2>趋势一：从 Chat 到 Agent</h2>
-          <p>2023-2025 年是 Chatbot 的时代，2026 年将是 AI Agent 的爆发年。用户不再满足于对话，而是需要 AI 主动完成任务。</p>
-          <ul>
-            <li>自主规划和执行多步骤任务</li>
-            <li>与外部工具和 API 深度集成</li>
-            <li>具备记忆和个性化能力</li>
-          </ul>
-
-          <h2>趋势二：垂直化与专业化</h2>
-          <p>通用 AI 助手竞争白热化，垂直领域 AI 将迎来机会：</p>
-          <ul>
-            <li>医疗 AI 助手</li>
-            <li>法律 AI 顾问</li>
-            <li>教育 AI 导师</li>
-            <li>金融 AI 分析师</li>
-          </ul>
-
-          <h2>趋势三：多模态成为标配</h2>
-          <p>文本对话将不再是唯一交互方式。语音、图像、视频将成为 AI 产品的标准能力。</p>
-
-          <h2>趋势四：AI 原生应用崛起</h2>
-          <p>不再是「在传统产品中加 AI」，而是从头设计 AI 原生应用：</p>
-          <ul>
-            <li>AI 优先的交互模式</li>
-            <li>动态 UI，根据上下文变化</li>
-            <li>人机协作而非替代</li>
-          </ul>
-
-          <h2>趋势五：可信赖 AI 成为焦点</h2>
-          <p>随着 AI 应用深入，以下问题将受到更多关注：</p>
-          <ul>
-            <li>数据隐私保护</li>
-            <li>模型可解释性</li>
-            <li>内容真实性验证</li>
-            <li>AI 伦理与合规</li>
-          </ul>
-
-          <blockquote>2026 年，AI 产品将从「惊艳」走向「实用」，从「玩具」变成「工具」。</blockquote>
-        `
-      },
-      {
-        id: 5,
-        title: '一次失败 AI 项目的深度复盘',
-        date: '2026-01-05',
-        category: '产品复盘',
-        readTime: '15 分钟',
-        desc: '复盘了我主导的一个失败 AI 项目，以及从中获得的关键教训。',
-        content: `
-          <p>失败是最好的老师。这篇文章复盘了我主导的一个失败 AI 项目，以及从中获得的关键教训。希望能帮助其他 AI 产品经理避坑。</p>
-
-          <h2>项目背景</h2>
-          <p>2024 年，我们启动了一个 AI 客服项目。目标是用 AI 替代 50% 的人工客服，降低运营成本。项目历时 6 个月，最终上线后用户满意度仅 35%，远低于预期的 80%。</p>
-
-          <h2>失败原因分析</h2>
-
-          <h3>1. 场景选择错误</h3>
-          <p><strong>问题：</strong>我们选择了售后咨询场景，但这个场景的问题是：</p>
-          <ul>
-            <li>用户情绪激动，对 AI 容忍度低</li>
-            <li>问题复杂多变，超出模型能力</li>
-            <li>涉及退款等操作，AI 无法直接处理</li>
-          </ul>
-          <p><strong>教训：</strong>AI 应该从低风险、高频率、标准化的场景切入。</p>
-
-          <h3>2. 过度依赖技术</h3>
-          <p><strong>问题：</strong>团队花 3 个月优化模型，却忽视了：</p>
-          <ul>
-            <li>用户真正需要的是什么？</li>
-            <li>现有流程的痛点在哪里？</li>
-            <li>如何设计人机协作机制？</li>
-          </ul>
-          <p><strong>教训：</strong>技术只是手段，解决用户问题才是目的。</p>
-
-          <h3>3. 缺乏渐进式上线</h3>
-          <p><strong>问题：</strong>我们一次性全量上线，没有经过充分的灰度测试。</p>
-          <p><strong>教训：</strong>AI 产品必须小步快跑：</p>
-          <ul>
-            <li>先内部测试</li>
-            <li>再小范围用户试点</li>
-            <li>收集反馈，快速迭代</li>
-            <li>逐步扩大范围</li>
-          </ul>
-
-          <h2>关键收获</h2>
-          <ol>
-            <li><strong>场景 > 技术</strong> - 选对场景比模型准确率更重要</li>
-            <li><strong>用户期望管理</strong> - 明确告知用户这是 AI，降低期望</li>
-            <li><strong>人机协作</strong> - AI 不是替代人，而是增强人</li>
-            <li><strong>快速试错</strong> - 不要追求完美，先跑起来再优化</li>
-          </ol>
-
-          <blockquote>这个失败项目是我职业生涯最宝贵的一课。它让我明白：做 AI 产品，敬畏之心比技术自信更重要。</blockquote>
-        `
-      },
-      {
-        id: 6,
-        title: 'AI PM 必备工具清单',
-        date: '2025-12-18',
-        category: '工具推荐',
-        readTime: '7 分钟',
-        desc: '从原型设计到数据分析，这些工具帮我提升了 3 倍工作效率。',
-        content: `
-          <p>作为 AI 产品经理，除了传统的产品工具，还需要掌握一些 AI 特定的工具。以下是我日常使用的工具清单。</p>
-
-          <h2>产品设计与原型</h2>
-          <ul>
-            <li><strong>Figma</strong> - 协作设计，AI 插件丰富</li>
-            <li><strong>v0.dev</strong> - Vercel 的 AI 原型生成工具</li>
-            <li><strong>Galileo AI</strong> - 文本生成 UI 设计</li>
-          </ul>
-
-          <h2>AI 模型测试</h2>
-          <ul>
-            <li><strong>Promptfoo</strong> - Prompt 测试和评估框架</li>
-            <li><strong>LangSmith</strong> - LLM 应用调试和监控</li>
-            <li><strong>Ragas</strong> - RAG 系统评估框架</li>
-          </ul>
-
-          <h2>数据分析</h2>
-          <ul>
-            <li><strong>Amplitude</strong> - 用户行为分析</li>
-            <li><strong>Mixpanel</strong> - 产品数据分析</li>
-            <li><strong>Metabase</strong> - 开源 BI 工具</li>
-          </ul>
-
-          <h2>AI 开发协作</h2>
-          <ul>
-            <li><strong>Cursor</strong> - AI 代码编辑器</li>
-            <li><strong>GitHub Copilot</strong> - AI 编程助手</li>
-            <li><strong>Notion AI</strong> - AI 文档助手</li>
-          </ul>
-
-          <h2>效率工具</h2>
-          <ul>
-            <li><strong>Readwise</strong> - 知识管理</li>
-            <li><strong>Omnivore</strong> - 开源稍后读</li>
-            <li><strong>Perplexity</strong> - AI 搜索引擎</li>
-          </ul>
-
-          <blockquote>工具只是手段，关键是用产品思维解决用户问题。但好工具确实能提升 3 倍工作效率。</blockquote>
-        `
-      }
-    ];
-
-    // 生成博客列表
-    function renderBlogList() {
-      const blogList = document.getElementById('blogList');
-      blogList.innerHTML = articles.map(article => `
-        <a class="blog-item" onclick="openArticle(${article.id})">
-          <div class="blog-item-header">
-            <h3 class="blog-item-title">${article.title}</h3>
-            <span class="blog-item-date">${article.date}</span>
-          </div>
-          <div class="blog-item-meta">
-            <span class="blog-item-category">${article.category}</span>
-            <span class="blog-item-desc">${article.desc}</span>
-          </div>
-        </a>
-      `).join('');
-    }
-
-    // 打开文章
-    function openArticle(id) {
-      const article = articles.find(a => a.id === id);
-      if (!article) return;
-
-      document.getElementById('article-title').textContent = article.title;
-      document.getElementById('article-date').textContent = article.date;
-      document.getElementById('article-category').textContent = article.category;
-      document.getElementById('article-readtime').textContent = article.readTime;
-      document.getElementById('article-content').innerHTML = article.content;
-
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      document.getElementById('article-page').classList.add('active');
-
-      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-      document.querySelector('.nav-links a[data-page="blog"]')?.classList.add('active');
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      history.pushState({ articleId: id }, '', '#article-' + id);
-    }
-
-    // 关闭文章
-    function closeArticle() {
-      document.getElementById('article-page').classList.remove('active');
-      document.getElementById('blog').classList.add('active');
-      
-      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-      document.querySelector('.nav-links a[data-page="blog"]')?.classList.add('active');
-      
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      history.pushState({}, '', window.location.pathname);
-    }
-
-    // 监听浏览器后退
-    window.addEventListener('popstate', (e) => {
-      if (!e.state || !e.state.articleId) {
-        closeArticle();
-      }
-    });
-
-    // 初始化
-    renderBlogList();
-  </script>
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
 </body>
 </html>

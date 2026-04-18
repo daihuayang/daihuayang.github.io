@@ -1,0 +1,489 @@
+/* ============================================================
+   杨大白 - AI 产品经理博客
+   设计风格参考 virxact.com
+   ============================================================ */
+
+/* ============================================================
+   CSS Variables
+   ============================================================ */
+:root {
+  /* 配色系统 - 完全匹配 virxact */
+  --ink: #0B0B0E;
+  --ink-soft: #15151A;
+  --paper: #EDE8DD;
+  --paper-dim: #D9D2C4;
+  --ash: #8F887B;
+  --blood: #E60012;
+  --blood-dim: #8E0010;
+  --hairline: rgba(237, 232, 221, 0.12);
+
+  /* 字体 */
+  --font-display: 'Bebas Neue', Impact, 'Noto Sans SC', sans-serif;
+  --font-cn: 'Noto Sans SC', 'PingFang SC', 'HarmonyOS Sans SC', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
+
+  /* 间距 */
+  --tracking-meta: 0.28em;
+}
+
+/* ============================================================
+   Reset & Base
+   ============================================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  background: #0B0B0E;
+  color: #EDE8DD;
+  font-family: var(--font-cn);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow: hidden;
+  position: relative;
+}
+
+::selection { background: #E60012; color: #EDE8DD; }
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+/* ============================================================
+   Background layers (all position: fixed)
+   ============================================================ */
+.bg-halftone {
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(230, 0, 18, 0.6) 1px, transparent 1.6px);
+  background-size: 14px 14px;
+  opacity: 0.14;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#particles {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.55;
+}
+
+.bg-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url('/assets/grain.svg');
+  background-size: 180px 180px;
+}
+
+.bg-vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background: radial-gradient(ellipse 100% 75% at 50% 50%, transparent 35%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+/* decorative hairlines */
+.accent-line {
+  position: fixed;
+  height: 2px;
+  background: #E60012;
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0.55;
+}
+.accent-line--top-left {
+  top: 86px;
+  left: -10px;
+  width: 90px;
+  transform: rotate(-6deg);
+}
+.accent-line--bottom-right {
+  bottom: 86px;
+  right: -14px;
+  width: 72px;
+  transform: rotate(-10deg);
+}
+
+/* ============================================================
+   Shell wrapper
+   ============================================================ */
+.shell {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+/* ============================================================
+   Navigation
+   ============================================================ */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2.5rem;
+  position: relative;
+  z-index: 20;
+  animation: navIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+@keyframes navIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.nav__brand {
+  display: block;
+}
+
+.brand-logo--horizontal {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: url("../assets/logo.svg") center/contain no-repeat;
+}
+
+.nav__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.6rem 1.2rem;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-meta);
+  color: rgba(237, 232, 221, 0.7);
+  border: 1px solid var(--hairline);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav__cta:hover {
+  color: #EDE8DD;
+  border-color: rgba(237, 232, 221, 0.4);
+  background: rgba(237, 232, 221, 0.04);
+}
+
+.nav__cta svg {
+  transition: transform 0.35s;
+}
+
+.nav__cta:hover svg {
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   Main stage
+   ============================================================ */
+.stage {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================================
+   Rail system — four meta labels
+   ============================================================ */
+.rail {
+  position: absolute;
+  font-family: var(--font-mono);
+  z-index: 15;
+}
+
+.rail__label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-meta);
+  color: rgba(237, 232, 221, 0.35);
+  margin-bottom: 6px;
+}
+
+.rail__value {
+  font-size: 11px;
+  color: rgba(237, 232, 221, 0.6);
+  letter-spacing: 0.04em;
+}
+
+/* positions */
+.rail--tl { top: 5.5rem; left: 2.5rem; }
+.rail--tr { top: 5.5rem; right: 2.5rem; text-align: right; }
+.rail--bl { bottom: 5rem; left: 2.5rem; }
+.rail--br { bottom: 5rem; right: 2.5rem; text-align: right; }
+
+/* subtle top accent for each rail */
+.rail--tl::before,
+.rail--bl::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: #E60012;
+  margin-bottom: 10px;
+  opacity: 0.7;
+  animation: lineGrow 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.9s both;
+}
+.rail--tr::before,
+.rail--br::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: #E60012;
+  margin-bottom: 10px;
+  margin-left: auto;
+  opacity: 0.7;
+  animation: lineGrow 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.9s both;
+}
+
+@keyframes lineGrow {
+  from { width: 0; opacity: 0; }
+  to   { width: 20px; opacity: 0.7; }
+}
+
+/* entrance animations — staggered per corner */
+.rail--tl { animation: railIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both; }
+.rail--tr { animation: railIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both; }
+.rail--bl { animation: railIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both; }
+.rail--br { animation: railIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both; }
+
+@keyframes railIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   Logo mark — centered, with orbit rings
+   ============================================================ */
+.mark-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% + var(--py, 0px)));
+  width: clamp(220px, 30vw, 340px);
+  height: clamp(220px, 30vw, 340px);
+  animation: markIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+  z-index: 12;
+  /* parallax offset driven by CSS vars set from JS */
+}
+
+@keyframes markIn {
+  from { opacity: 0; transform: translate(-50%, calc(-50% + 20px)) scale(0.96); }
+  to   { opacity: 1; transform: translate(-50%, calc(-50% + var(--py, 0px))) scale(1); }
+}
+
+/* halo glow */
+.mark-halo {
+  position: absolute;
+  inset: -30%;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(230, 0, 18, 0.18) 0%, transparent 70%);
+  filter: blur(24px);
+  animation: haloBreath 5s ease-in-out infinite;
+}
+
+@keyframes haloBreath {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%       { opacity: 0.9; transform: scale(1.06); }
+}
+
+/* orbit rings */
+.orbit {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.orbit--outer {
+  animation: orbitSpin 30s linear infinite;
+}
+.orbit--mid {
+  animation: orbitSpin 20s linear infinite reverse;
+}
+.orbit--inner {
+  animation: orbitSpin 14s linear infinite;
+}
+
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* static logo body */
+.mark {
+  position: absolute;
+  inset: 12%;
+  width: 76%;
+  height: 76%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: markJitter 0.5s steps(6) infinite, rgbSplit 4s ease-in-out infinite;
+}
+
+.mark-icon {
+  width: 100%;
+  height: 100%;
+}
+
+.mark-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: #EDE8DD;
+}
+
+@keyframes markJitter {
+  0%   { transform: translate(0, 0); }
+  16%  { transform: translate(0.6px, -0.4px); }
+  33%  { transform: translate(-0.4px, 0.5px); }
+  50%  { transform: translate(0.4px, 0.3px); }
+  66%  { transform: translate(-0.5px, -0.3px); }
+  83%  { transform: translate(0.3px, 0.4px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes rgbSplit {
+  0%, 75%, 100% { filter: drop-shadow(-1.5px 0 0 rgba(0, 230, 18, 0.5)) drop-shadow(1.5px 0 0 rgba(230, 0, 18, 0.5)); }
+  78% { filter: drop-shadow(-4px 0 0 rgba(0, 230, 18, 0.9)) drop-shadow(4px 0 0 rgba(230, 0, 18, 0.9)); }
+  85% { filter: drop-shadow(-2px 0 0 rgba(0, 230, 18, 0.6)) drop-shadow(2px 0 0 rgba(230, 0, 18, 0.6)); }
+}
+
+/* ============================================================
+   Wordmark — under the mark
+   ============================================================ */
+.wordmark {
+  position: absolute;
+  bottom: 6%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  animation: wordmarkIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+  z-index: 12;
+}
+
+@keyframes wordmarkIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.wordmark__line {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-meta);
+  color: rgba(237, 232, 221, 0.55);
+}
+.wordmark__marker {
+  display: inline-block;
+  width: 22px;
+  height: 1px;
+  background: #E60012;
+}
+
+.wordmark__title {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 14px;
+  font-weight: 400;
+  font-family: var(--font-display);
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  color: #EDE8DD;
+}
+.wordmark__en { font-family: var(--font-display); }
+.wordmark__sep {
+  color: #E60012;
+  font-family: var(--font-display);
+  transform: translateY(-3px);
+}
+.wordmark__cn {
+  font-family: var(--font-cn);
+  font-weight: 900;
+  font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+  letter-spacing: 0.02em;
+}
+
+.wordmark__slogan {
+  margin-top: 12px;
+  font-family: var(--font-cn);
+  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+  color: rgba(237, 232, 221, 0.6);
+  letter-spacing: 0.05em;
+}
+.wordmark__slogan-en {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: rgba(237, 232, 221, 0.35);
+  margin-left: 6px;
+}
+
+/* ============================================================
+   Legal strip
+   ============================================================ */
+.legal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 18px 2.5rem;
+  border-top: 1px solid var(--hairline);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-meta);
+  color: rgba(237, 232, 221, 0.35);
+  animation: wordmarkIn 1s cubic-bezier(0.16, 1, 0.3, 1) 1s both;
+}
+.legal__dot { width: 6px; height: 6px; background: #E60012; }
+.legal__divider { width: 1px; height: 10px; background: rgba(237, 232, 221, 0.2); }
+
+/* ============================================================
+   Reduced motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .orbit,
+  .mark,
+  .mark-halo,
+  .mark-wrap,
+  .rail,
+  .wordmark,
+  .legal { animation: none; }
+  #particles { display: none; }
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 768px) {
+  .rail { display: none; }
+  .accent-line { display: none; }
+  .wordmark__slogan-en { display: none; }
+  .nav { padding: 1rem 1.5rem; }
+}

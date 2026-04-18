@@ -1,0 +1,583 @@
+/* ============================================================
+   文章发布后台样式
+   ============================================================ */
+
+/* ============================================================
+   管理标签页
+   ============================================================ */
+.admin-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--hairline);
+  padding-bottom: 1rem;
+}
+
+.admin-tab {
+  padding: 0.625rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(237, 232, 221, 0.5);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.admin-tab:hover {
+  color: #EDE8DD;
+  border-color: rgba(237, 232, 221, 0.2);
+}
+
+.admin-tab--active {
+  color: #EDE8DD;
+  border-color: #E60012;
+  background: rgba(230, 0, 18, 0.08);
+}
+
+/* ============================================================
+   管理面板
+   ============================================================ */
+.admin-panel {
+  display: none;
+  animation: panelIn 0.4s ease both;
+}
+
+.admin-panel--active {
+  display: block;
+}
+
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   表单样式
+   ============================================================ */
+.post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group--half {
+  flex: 1;
+}
+
+.form-group--inline {
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.form-group--inline .form-label {
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(237, 232, 221, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-hint {
+  font-size: 10px;
+  color: rgba(237, 232, 221, 0.35);
+  text-transform: none;
+  letter-spacing: 0.05em;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  padding: 0.875rem 1rem;
+  font-family: var(--font-cn);
+  font-size: 0.9375rem;
+  color: #EDE8DD;
+  background: rgba(237, 232, 221, 0.03);
+  border: 1px solid var(--hairline);
+  transition: all 0.3s ease;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: rgba(237, 232, 221, 0.3);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: rgba(230, 0, 18, 0.5);
+  background: rgba(237, 232, 221, 0.05);
+}
+
+.form-input--small {
+  width: auto;
+  min-width: 120px;
+}
+
+.form-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none' stroke='%238F887B' stroke-width='1.5'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.form-select option {
+  background: #15151A;
+  color: #EDE8DD;
+}
+
+.form-textarea {
+  resize: vertical;
+  line-height: 1.7;
+}
+
+.form-textarea--small {
+  min-height: 60px;
+}
+
+.form-textarea--editor {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.8;
+  min-height: 400px;
+}
+
+/* ============================================================
+   编辑器工具栏
+   ============================================================ */
+.editor-toolbar {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  background: rgba(237, 232, 221, 0.03);
+  border: 1px solid var(--hairline);
+  border-bottom: none;
+}
+
+.toolbar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: rgba(237, 232, 221, 0.5);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toolbar-btn:hover {
+  color: #EDE8DD;
+  background: rgba(237, 232, 221, 0.05);
+  border-color: rgba(237, 232, 221, 0.2);
+}
+
+.toolbar-btn:active {
+  background: rgba(230, 0, 18, 0.1);
+}
+
+.form-textarea--editor {
+  border-top: none;
+}
+
+/* ============================================================
+   复选框
+   ============================================================ */
+.form-group--checkbox {
+  flex-direction: row;
+  align-items: center;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #E60012;
+  cursor: pointer;
+}
+
+.checkbox-text {
+  font-family: var(--font-cn);
+  font-size: 0.9375rem;
+  color: rgba(237, 232, 221, 0.7);
+}
+
+/* ============================================================
+   按钮
+   ============================================================ */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--hairline);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.btn--primary {
+  color: #0B0B0E;
+  background: #EDE8DD;
+  border-color: #EDE8DD;
+}
+
+.btn--primary:hover {
+  background: #D9D2C4;
+  border-color: #D9D2C4;
+}
+
+.btn--secondary {
+  color: rgba(237, 232, 221, 0.7);
+  background: transparent;
+  border-color: var(--hairline);
+}
+
+.btn--secondary:hover {
+  color: #EDE8DD;
+  border-color: rgba(237, 232, 221, 0.4);
+  background: rgba(237, 232, 221, 0.04);
+}
+
+.btn--danger {
+  color: #E60012;
+  background: transparent;
+  border-color: rgba(230, 0, 18, 0.3);
+}
+
+.btn--danger:hover {
+  background: rgba(230, 0, 18, 0.08);
+  border-color: #E60012;
+}
+
+/* ============================================================
+   文章列表
+   ============================================================ */
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--hairline);
+}
+
+.posts-empty {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #0B0B0E;
+}
+
+.posts-empty p {
+  font-family: var(--font-cn);
+  color: rgba(237, 232, 221, 0.4);
+}
+
+.post-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  background: #0B0B0E;
+  transition: background 0.3s ease;
+}
+
+.post-item:hover {
+  background: rgba(237, 232, 221, 0.02);
+}
+
+.post-item__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.post-item__title {
+  font-family: var(--font-cn);
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(237, 232, 221, 0.85);
+}
+
+.post-item__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: rgba(237, 232, 221, 0.35);
+}
+
+.post-item__category {
+  color: #E60012;
+}
+
+.post-item__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.post-item__btn {
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(237, 232, 221, 0.5);
+  background: transparent;
+  border: 1px solid var(--hairline);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.post-item__btn:hover {
+  color: #EDE8DD;
+  border-color: rgba(237, 232, 221, 0.4);
+}
+
+.post-item__btn--danger:hover {
+  color: #E60012;
+  border-color: rgba(230, 0, 18, 0.5);
+}
+
+/* ============================================================
+   设置区域
+   ============================================================ */
+.settings-section {
+  margin-bottom: 2.5rem;
+}
+
+.settings-section:last-child {
+  margin-bottom: 0;
+}
+
+.settings-title {
+  font-family: var(--font-cn);
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(237, 232, 221, 0.85);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.settings-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   模态框
+   ============================================================ */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal--active {
+  display: flex;
+}
+
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 11, 14, 0.85);
+  backdrop-filter: blur(4px);
+}
+
+.modal__content {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  max-height: 85vh;
+  background: #0B0B0E;
+  border: 1px solid var(--hairline);
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.modal__title {
+  font-family: var(--font-cn);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #EDE8DD;
+}
+
+.modal__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: rgba(237, 232, 221, 0.5);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal__close:hover {
+  color: #EDE8DD;
+  border-color: rgba(237, 232, 221, 0.3);
+}
+
+.modal__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+}
+
+/* ============================================================
+   Toast 提示
+   ============================================================ */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 1rem 1.5rem;
+  background: #15151A;
+  border: 1px solid var(--hairline);
+  border-left: 2px solid #E60012;
+  z-index: 200;
+  animation: toastIn 0.4s ease both;
+}
+
+.toast--success {
+  border-left-color: #00c853;
+}
+
+.toast--error {
+  border-left-color: #E60012;
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.toast__message {
+  font-family: var(--font-cn);
+  font-size: 0.875rem;
+  color: rgba(237, 232, 221, 0.85);
+}
+
+/* ============================================================
+   响应式
+   ============================================================ */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-group--inline {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .admin-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .admin-tab {
+    white-space: nowrap;
+  }
+
+  .post-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .post-item__actions {
+    width: 100%;
+  }
+
+  .post-item__btn {
+    flex: 1;
+  }
+
+  .modal__content {
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  .modal__body {
+    padding: 1.5rem;
+  }
+
+  .toast {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+  }
+}

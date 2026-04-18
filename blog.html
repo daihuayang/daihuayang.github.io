@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>博客 · 夜小白</title>
+  <meta name="description" content="夜小白的博客 - 分享 AI 产品设计与实践经验">
+  <meta name="theme-color" content="#0B0B0E">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./assets/logo.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="博客 · 夜小白">
+  <meta property="og:description" content="分享 AI 产品设计与实践经验">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/blog.css">
+</head>
+<body>
+  <!-- =================== BACKGROUND LAYERS =================== -->
+  <div class="bg-halftone" aria-hidden="true"></div>
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div class="bg-grain" aria-hidden="true"></div>
+  <div class="bg-vignette" aria-hidden="true"></div>
+
+  <!-- =================== SHELL =================== -->
+  <div class="shell shell--page">
+
+    <!-- Header -->
+    <header class="nav">
+      <a href="/" class="nav__brand" aria-label="夜小白 · AI 产品经理">
+        <span class="brand-logo brand-logo--horizontal"></span>
+      </a>
+      <div class="nav__links">
+        <a href="/" class="nav__link">Home</a>
+        <a href="/blog.html" class="nav__link nav__link--active">Blog</a>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-main">
+      <!-- Page Header -->
+      <section class="page-header">
+        <div class="page-header__meta">
+          <span class="page-header__marker"></span>
+          <span class="page-header__label">§ 文章列表</span>
+        </div>
+        <h1 class="page-header__title">Blog</h1>
+        <p class="page-header__desc">探索 AI 产品设计的思考与实践</p>
+      </section>
+
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <div class="filter-bar__group">
+          <button class="filter-btn filter-btn--active" data-filter="all">全部</button>
+          <button class="filter-btn" data-filter="ai-product">AI 产品</button>
+          <button class="filter-btn" data-filter="design">设计思维</button>
+          <button class="filter-btn" data-filter="practice">实践案例</button>
+          <button class="filter-btn" data-filter="thought">行业思考</button>
+        </div>
+        <div class="filter-bar__count">
+          <span class="filter-bar__number" id="postCount">12</span>
+          <span class="filter-bar__label">篇文章</span>
+        </div>
+      </div>
+
+      <!-- Blog List -->
+      <div class="blog-list" id="blogList">
+        <!-- Post Card 1 -->
+        <article class="post-card" data-category="ai-product">
+          <a href="/post.html?id=1" class="post-card__link">
+            <div class="post-card__meta">
+              <span class="post-card__category">AI 产品</span>
+              <span class="post-card__date">2026.04.15</span>
+            </div>
+            <h2 class="post-card__title">大模型应用的产品设计原则：从 prompt 工程到用户体验</h2>
+            <p class="post-card__excerpt">探讨如何在 AI 产品中平衡技术能力与用户需求，构建真正有价值的 LLM 应用体验。</p>
+            <div class="post-card__footer">
+              <span class="post-card__read-time">8 分钟阅读</span>
+              <span class="post-card__arrow">
+                <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true">
+                  <path d="M0 6h14m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="square"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Post Card 2 -->
+        <article class="post-card" data-category="design">
+          <a href="/post.html?id=2" class="post-card__link">
+            <div class="post-card__meta">
+              <span class="post-card__category">设计思维</span>
+              <span class="post-card__date">2026.04.10</span>
+            </div>
+            <h2 class="post-card__title">AI 时代的交互设计范式转变</h2>
+            <p class="post-card__excerpt">从 GUI 到 LUI，人工智能正在重新定义人机交互的基本逻辑与设计准则。</p>
+            <div class="post-card__footer">
+              <span class="post-card__read-time">6 分钟阅读</span>
+              <span class="post-card__arrow">
+                <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true">
+                  <path d="M0 6h14m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="square"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Post Card 3 -->
+        <article class="post-card" data-category="practice">
+          <a href="/post.html?id=3" class="post-card__link">
+            <div class="post-card__meta">
+              <span class="post-card__category">实践案例</span>
+              <span class="post-card__date">2026.04.05</span>
+            </div>
+            <h2 class="post-card__title">构建企业级 AI 助手：从 0 到 1 的产品实践</h2>
+            <p class="post-card__excerpt">分享一个 B2B AI 助手产品的完整设计过程，包括需求分析、原型验证到上线迭代。</p>
+            <div class="post-card__footer">
+              <span class="post-card__read-time">12 分钟阅读</span>
+              <span class="post-card__arrow">
+                <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true">
+                  <path d="M0 6h14m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="square"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Post Card 4 -->
+        <article class="post-card" data-category="thought">
+          <a href="/post.html?id=4" class="post-card__link">
+            <div class="post-card__meta">
+              <span class="post-card__category">行业思考</span>
+              <span class="post-card__date">2026.03.28</span>
+            </div>
+            <h2 class="post-card__title">AI 产品经理的核心能力模型</h2>
+            <p class="post-card__excerpt">在 AI 快速发展的背景下，产品经理需要具备哪些独特的能力与思维方式。</p>
+            <div class="post-card__footer">
+              <span class="post-card__read-time">10 分钟阅读</span>
+              <span class="post-card__arrow">
+                <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true">
+                  <path d="M0 6h14m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="square"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Post Card 5 -->
+        <article class="post-card" data-category="ai-product">
+          <a href="/post.html?id=5" class="post-card__link">
+            <div class="post-card__meta">
+              <span class="post-card__category">AI 产品</span>
+              <span class="post-card__date">2026.03.20</span>
+            </div>
+            <h2 class="post-card__title">RAG 系统的产品化思考：让知识库真正可用</h2>
+            <p class="post-card__excerpt">深入分析 RAG 技术在产品中的应用场景与优化策略，提升知识检索的准确性。</p>
+            <div class="post-card__footer">
+              <span class="post-card__read-time">9 分钟阅读</span>
+              <span class="post-card__arrow">
+                <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true">
+                  <path d="M0 6h14m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="square"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Post Card 6 -->
+        <article class="post-card" data-category="design">
+          <a href="/post.html?id=6" class="post-card__link">
+            <div class="post-card__meta">
+              <span class="post-card__category">设计思维</span>
+              <span class="post-card__date">2026.03.15</span>
+            </div>
+            <h2 class="post-card__title">对话式界面的设计陷阱与最佳实践</h2>
+            <p class="post-card__excerpt">ChatUI 虽然流行，但并非万能。探讨何时使用对话界面，何时选择传统界面。</p>
+            <div class="post-card__footer">
+              <span class="post-card__read-time">7 分钟阅读</span>
+              <span class="post-card__arrow">
+                <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true">
+                  <path d="M0 6h14m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="square"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Post Card 7 -->
+        <article class="post-card" data-category="practice">
+          <a href="/post.html?id=7" class="post-card__link">
+            <div class="post-card__meta">
+              <span class="post-card__category">实践案例</span>
+              <span class="post-card__date">2026.03.08</span>
+            </div>
+            <h2 class="post-card__title">AI 写作助手的产品迭代之路</h2>
+            <p class="post-card__excerpt">记录一款 AI 写作工具从 MVP 到成熟产品的演进过程，以及关键决策点。</p>
+            <div class="post-card__footer">
+              <span class="post-card__read-time">11 分钟阅读</span>
+              <span class="post-card__arrow">
+                <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true">
+                  <path d="M0 6h14m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="square"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Post Card 8 -->
+        <article class="post-card" data-category="thought">
+          <a href="/post.html?id=8" class="post-card__link">
+            <div class="post-card__meta">
+              <span class="post-card__category">行业思考</span>
+              <span class="post-card__date">2026.03.01</span>
+            </div>
+            <h2 class="post-card__title">Agent 产品的机会与挑战</h2>
+            <p class="post-card__excerpt">AI Agent 被认为是下一个大方向，但在产品化过程中面临哪些现实挑战。</p>
+            <div class="post-card__footer">
+              <span class="post-card__read-time">8 分钟阅读</span>
+              <span class="post-card__arrow">
+                <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true">
+                  <path d="M0 6h14m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="square"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+        </article>
+      </div>
+
+      <!-- Load More -->
+      <div class="load-more">
+        <button class="load-more__btn" id="loadMoreBtn">
+          <span>加载更多</span>
+          <svg width="14" height="10" viewBox="0 0 14 10" aria-hidden="true">
+            <path d="M7 0v8m-3-3 3 3 3-3" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="square"/>
+          </svg>
+        </button>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="legal legal--page">
+      <span class="legal__dot"></span>
+      <span>© 2026 夜白</span>
+      <span class="legal__divider"></span>
+      <span>用心做 AI 产品</span>
+    </footer>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/blog.js"></script>
+</body>
+</html>
