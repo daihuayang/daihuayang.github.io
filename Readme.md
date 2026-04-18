@@ -1,35 +1,56 @@
-项目概述
-本项目包含一个H5网页​（用于展示题目及解析）和一个后台管理系统​（支持题目录入与管理），采用前后端分离架构，基于HTML5、Vue.js（前端）和Node.js/Java（后端）实现。以下是完整说明：
+# AI 产品经理 | 杨大白
 
-一、项目结构
-markdown
-├── frontend-h5/            # H5前端  
-│   ├── src/                # 源码目录  
-│   │   ├── assets/         # 静态资源（图片、CSS）  
-│   │   ├── components/     # 通用组件（题目卡片、解析弹窗）  
-│   │   ├── views/          # 页面视图（首页、详情页）  
-│   │   └── api/            # 接口请求封装  
-├── admin-system/           # 后台管理系统  
-│   ├── src/  
-│   │   ├── pages/          # 管理页面（题目列表、新增/编辑表单）  
-│   │   └── utils/          # 工具类（数据校验、请求封装）  
-├── server/                  # 后端服务  
-│   ├── model/              # 数据模型（题目、解析）  
-│   ├── controller/         # 业务逻辑（增删改查接口）  
-│   └── config/             # 数据库配置  
-└── README.md               # 项目说明  
-二、功能模块
-1. H5网页功能
-​题目展示：分页加载题目列表，支持点击查看解析。
-​解析交互：弹窗或折叠面板显示解析内容，支持图文混排。
-​响应式布局：适配手机、平板、PC端（使用Flex/Grid布局）。
-​性能优化：图片懒加载、资源压缩（WebP格式）。
-2. 后台管理系统功能
-​题目管理：
-​新增/编辑：表单支持富文本编辑器录入题目和解析。
-​批量操作：支持Excel导入、批量删除。
-​权限控制：管理员登录验证（JWT令牌）。
-​数据统计：题目访问量、用户行为分析（集成ECharts）。
-3. 后端API
-​接口设计：RESTful风格，提供题目列表、详情、搜索接口。
-​数据库：MySQL存储题目数据，Redis缓存高频访问内容
+一个专注于 AI 产品设计与实践的个人博客网站。
+
+## 🌐 访问地址
+
+- GitHub Pages: https://daihuayang.github.io
+
+## 📝 项目介绍
+
+这是我的个人博客，主要分享：
+- AI 产品设计与实践经验
+- LLM 应用开发思考
+- 用户研究方法论
+- AI 行业观察与趋势分析
+
+## 🛠️ 技术栈
+
+- **纯静态网站** - HTML5 + CSS3 + JavaScript
+- **部署** - GitHub Pages
+- **样式** - 现代化深色主题，响应式设计
+- **动画** - CSS 动画 + Intersection Observer
+
+## 📁 项目结构
+
+```
+├── index.html          # 博客主页（包含首页、博客、关于三个页面）
+├── 404.html            # 404 错误页面
+├── CNAME               # 自定义域名配置
+├── .github/workflows/  # GitHub Actions 部署配置
+└── README.md           # 项目说明
+```
+
+## 🚀 本地运行
+
+直接在浏览器中打开 `index.html` 即可预览：
+
+```bash
+# 方式 1: 使用 VS Code Live Server
+# 安装 Live Server 插件后右键 index.html -> Open with Live Server
+
+# 方式 2: 使用 Python 本地服务器
+python3 -m http.server 8000
+
+# 方式 3: 使用 Node.js http-server
+npx http-server -p 8000
+```
+
+## 📧 联系方式
+
+- Email: 895115762@qq.com
+- GitHub: https://github.com/daihuayang
+
+## 📄 License
+
+MIT
