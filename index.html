@@ -3,105 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI 产品经理 | 杨大白 - 专注 AI 产品设计与实践</title>
+  <title>杨大白 - AI 产品经理</title>
   <meta name="description" content="杨大白 - AI 产品经理的个人博客，分享 AI 产品设计、LLM 应用开发、用户研究方法论和 AI 行业观察">
   <meta name="keywords" content="AI产品经理, AI产品设计, LLM应用, 大模型, 用户研究, Prompt Engineering, AI博客">
   
-  <!-- Open Graph / 社交媒体分享优化 -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://daihuayang.github.io/">
-  <meta property="og:title" content="AI 产品经理 | 杨大白">
-  <meta property="og:description" content="专注 AI 产品设计与实践，用产品思维探索大模型应用边界">
+  <meta property="og:title" content="杨大白 - AI 产品经理">
+  <meta property="og:description" content="专注 AI 产品设计与实践">
   <meta property="og:image" content="https://daihuayang.github.io/og-image.png">
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AI 产品经理 | 杨大白">
-  <meta name="twitter:description" content="专注 AI 产品设计与实践，用产品思维探索大模型应用边界">
+  <meta name="twitter:title" content="杨大白 - AI 产品经理">
+  <meta name="twitter:description" content="专注 AI 产品设计与实践">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  
   <style>
-    :root {
-      --bg-primary: #0a0a0f;
-      --bg-secondary: #12121a;
-      --bg-card: #1a1a25;
-      --accent: #6366f1;
-      --accent-glow: rgba(99, 102, 241, 0.4);
-      --text-primary: #f1f1f3;
-      --text-secondary: #a1a1aa;
-      --text-muted: #71717a;
-      --border: #27272a;
-      --gradient-1: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
-      --gradient-2: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-    }
-
-    /* 亮色主题 */
-    [data-theme="light"] {
-      --bg-primary: #ffffff;
-      --bg-secondary: #f8f9fa;
-      --bg-card: #ffffff;
-      --text-primary: #1a1a1a;
-      --text-secondary: #4a4a4a;
-      --text-muted: #71717a;
-      --border: #e5e7eb;
-      --accent-glow: rgba(99, 102, 241, 0.2);
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    :root {
+      --bg: #ffffff;
+      --text: #000000;
+      --text-secondary: #666666;
+      --text-muted: #999999;
+      --border: #e5e5e5;
+      --hover: #f5f5f5;
+    }
+
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-primary);
-      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* Background Effects */
-    .bg-grid {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
-      background-size: 50px 50px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .bg-glow {
-      position: fixed;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      filter: blur(150px);
-      opacity: 0.3;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .bg-glow-1 {
-      top: -200px;
-      right: -200px;
-      background: var(--accent);
-    }
-
-    .bg-glow-2 {
-      bottom: -200px;
-      left: -200px;
-      background: #8b5cf6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     /* Navigation */
@@ -111,14 +57,14 @@
       left: 0;
       right: 0;
       z-index: 100;
-      padding: 1rem 2rem;
-      background: rgba(10, 10, 15, 0.8);
-      backdrop-filter: blur(20px);
+      padding: 2rem 4rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
 
     .nav-content {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -126,45 +72,54 @@
     }
 
     .logo {
-      font-size: 1.25rem;
-      font-weight: 600;
-      background: var(--gradient-1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+      color: var(--text);
     }
 
-    .nav-right {
+    .nav-links {
       display: flex;
-      align-items: center;
-      gap: 1.5rem;
+      gap: 3rem;
+      list-style: none;
     }
 
-    /* 主题切换按钮 */
-    .theme-toggle {
-      background: none;
-      border: none;
+    .nav-links a {
       color: var(--text-secondary);
-      cursor: pointer;
-      font-size: 1.25rem;
-      padding: 0.5rem;
-      border-radius: 0.5rem;
-      transition: all 0.3s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      position: relative;
     }
 
-    .theme-toggle:hover {
-      background: var(--bg-card);
-      color: var(--text-primary);
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
     }
 
-    /* 汉堡菜单按钮 */
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--text);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    /* Mobile Menu */
     .hamburger {
       display: none;
       flex-direction: column;
-      gap: 4px;
+      gap: 5px;
       background: none;
       border: none;
       cursor: pointer;
@@ -174,432 +129,172 @@
     .hamburger span {
       display: block;
       width: 24px;
-      height: 2px;
-      background: var(--text-primary);
+      height: 1.5px;
+      background: var(--text);
       transition: all 0.3s;
-    }
-
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -6px);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 0.875rem;
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover, .nav-links a.active {
-      color: var(--text-primary);
     }
 
     /* Container */
     .container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 0 2rem;
-      position: relative;
-      z-index: 1;
+      padding: 0 4rem;
+    }
+
+    /* Page Views */
+    .page {
+      display: none;
+      min-height: 100vh;
+      padding-top: 100px;
+    }
+
+    .page.active {
+      display: block;
     }
 
     /* Hero Section */
     .hero {
-      min-height: 100vh;
+      min-height: 90vh;
       display: flex;
-      align-items: center;
-      padding-top: 80px;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 0;
     }
 
-    .hero-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 2rem;
     }
 
-    .hero-text h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-text h1 span {
-      background: var(--gradient-1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-text p {
-      font-size: 1.125rem;
+    .hero h1 .highlight {
       color: var(--text-secondary);
-      margin-bottom: 2rem;
-      max-width: 500px;
     }
 
-    .tags {
+    .hero-subtitle {
+      font-size: clamp(1.125rem, 2vw, 1.5rem);
+      color: var(--text-secondary);
+      max-width: 600px;
+      line-height: 1.7;
+      font-weight: 400;
+      margin-bottom: 3rem;
+    }
+
+    .hero-tags {
       display: flex;
+      gap: 1rem;
       flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 2rem;
     }
 
     .tag {
-      padding: 0.5rem 1rem;
-      background: var(--gradient-2);
+      padding: 0.5rem 1.25rem;
       border: 1px solid var(--border);
-      border-radius: 2rem;
+      border-radius: 100px;
       font-size: 0.875rem;
       color: var(--text-secondary);
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .btn {
-      padding: 0.875rem 1.75rem;
-      border-radius: 0.5rem;
-      font-size: 0.875rem;
       font-weight: 500;
-      text-decoration: none;
-      transition: all 0.3s;
-      cursor: pointer;
-      border: none;
+      transition: all 0.2s;
     }
 
-    .btn-primary {
-      background: var(--gradient-1);
-      color: white;
-      box-shadow: 0 4px 20px var(--accent-glow);
+    .tag:hover {
+      border-color: var(--text);
+      color: var(--text);
     }
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px var(--accent-glow);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--text-primary);
-      border: 1px solid var(--border);
-    }
-
-    .btn-secondary:hover {
-      background: var(--bg-card);
-    }
-
-    /* Avatar */
-    .hero-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .avatar-container {
-      position: relative;
-      width: 350px;
-      height: 350px;
-    }
-
-    .avatar-ring {
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      border: 2px solid transparent;
-      background: linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
-                  var(--gradient-1) border-box;
-      animation: rotate 10s linear infinite;
-    }
-
-    .avatar-ring-2 {
-      position: absolute;
-      inset: 20px;
-      border-radius: 50%;
-      border: 2px solid transparent;
-      background: linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
-                  linear-gradient(135deg, #8b5cf6, #d946ef) border-box;
-      animation: rotate 15s linear infinite reverse;
-    }
-
-    .avatar-inner {
-      position: absolute;
-      inset: 40px;
-      background: var(--bg-card);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 8rem;
-    }
-
-    @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    /* Sections */
-    section {
-      padding: 6rem 0;
-    }
-
+    /* Section Headers */
     .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
+      padding: 6rem 0 3rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
     }
 
     .section-header h2 {
-      font-size: 2.5rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
     }
 
     .section-header p {
       color: var(--text-secondary);
-      max-width: 600px;
-      margin: 0 auto;
+      font-size: 1.125rem;
+      margin-top: 1rem;
     }
 
-    /* Blog Cards */
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 2rem;
-    }
-
-    .blog-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 1rem;
-      padding: 2rem;
-      transition: all 0.3s;
-      cursor: pointer;
-    }
-
-    .blog-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    .blog-card-meta {
+    /* Blog List */
+    .blog-list {
       display: flex;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      font-size: 0.75rem;
-      color: var(--text-muted);
+      flex-direction: column;
     }
 
-    .blog-card-category {
-      color: var(--accent);
+    .blog-item {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
 
-    .blog-card h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-      line-height: 1.4;
+    .blog-item:hover {
+      padding-left: 1rem;
     }
 
-    .blog-card p {
+    .blog-item:hover .blog-item-title {
       color: var(--text-secondary);
-      font-size: 0.875rem;
-      margin-bottom: 1.5rem;
     }
 
-    .blog-card-footer {
+    .blog-item-header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-    }
-
-    .read-time {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .read-more {
-      font-size: 0.875rem;
-      color: var(--accent);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    /* AI Demo Section */
-    .ai-demo {
-      background: var(--bg-secondary);
-      border-radius: 2rem;
-      padding: 3rem;
-      border: 1px solid var(--border);
-    }
-
-    .ai-demo-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .ai-icon {
-      width: 48px;
-      height: 48px;
-      background: var(--gradient-1);
-      border-radius: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-    }
-
-    .ai-demo h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .ai-demo p {
-      color: var(--text-secondary);
-      font-size: 0.875rem;
-    }
-
-    .ai-conversation {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .ai-message {
-      max-width: 80%;
-      padding: 1rem 1.5rem;
-      border-radius: 1rem;
-      font-size: 0.875rem;
-      line-height: 1.6;
-    }
-
-    .ai-message.user {
-      background: var(--accent);
-      color: white;
-      align-self: flex-end;
-      border-bottom-right-radius: 0.25rem;
-    }
-
-    .ai-message.assistant {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      align-self: flex-start;
-      border-bottom-left-radius: 0.25rem;
-    }
-
-    /* About Section */
-    .about-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .about-text h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .about-text p {
-      color: var(--text-secondary);
-      margin-bottom: 1.5rem;
-    }
-
-    .skills {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .skill-item {
-      background: var(--bg-card);
-      padding: 1.5rem;
-      border-radius: 1rem;
-      border: 1px solid var(--border);
-    }
-
-    .skill-item h4 {
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .skill-item p {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      margin: 0;
-    }
-
-    .skill-bar {
-      height: 4px;
-      background: var(--border);
-      border-radius: 2px;
-      margin-top: 0.75rem;
-      overflow: hidden;
-    }
-
-    .skill-bar-fill {
-      height: 100%;
-      background: var(--gradient-1);
-      border-radius: 2px;
-      transition: width 1s ease-out;
-    }
-
-    /* Contact Section */
-    .contact-links {
-      display: flex;
-      justify-content: center;
+      align-items: baseline;
+      margin-bottom: 0.75rem;
       gap: 2rem;
-      margin-top: 2rem;
     }
 
-    .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 0.875rem;
-      transition: color 0.3s;
+    .blog-item-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      transition: color 0.2s;
+      flex: 1;
     }
 
-    .contact-link:hover {
-      color: var(--accent);
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 3rem 0;
-      border-top: 1px solid var(--border);
+    .blog-item-date {
       color: var(--text-muted);
       font-size: 0.875rem;
+      font-weight: 500;
+      white-space: nowrap;
     }
 
-    /* 文章详情页 */
+    .blog-item-meta {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .blog-item-category {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .blog-item-desc {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-top: 0.5rem;
+    }
+
+    /* Article Page */
     .article-page {
       display: none;
-      padding-top: 100px;
+      padding-top: 120px;
       min-height: 100vh;
     }
 
@@ -610,53 +305,65 @@
     .article-container {
       max-width: 800px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 2rem 4rem;
+    }
+
+    .article-back {
+      display: inline-block;
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-bottom: 3rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .article-back:hover {
+      color: var(--text);
     }
 
     .article-header {
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
     }
 
     .article-header h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      line-height: 1.3;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
     }
 
     .article-meta {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
       color: var(--text-muted);
       font-size: 0.875rem;
-      margin-bottom: 2rem;
-    }
-
-    .article-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--accent);
-      text-decoration: none;
-      margin-bottom: 2rem;
-      cursor: pointer;
+      font-weight: 500;
     }
 
     .article-content {
+      font-size: 1.125rem;
       line-height: 1.8;
       color: var(--text-secondary);
     }
 
     .article-content h2 {
       font-size: 1.75rem;
-      color: var(--text-primary);
-      margin: 2.5rem 0 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 3rem 0 1.5rem;
+      letter-spacing: -0.02em;
     }
 
     .article-content h3 {
-      font-size: 1.35rem;
-      color: var(--text-primary);
-      margin: 2rem 0 1rem;
+      font-size: 1.375rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 2.5rem 0 1rem;
     }
 
     .article-content p {
@@ -664,10 +371,12 @@
     }
 
     .article-content strong {
-      color: var(--text-primary);
+      color: var(--text);
+      font-weight: 600;
     }
 
-    .article-content ul, .article-content ol {
+    .article-content ul,
+    .article-content ol {
       margin-bottom: 1.5rem;
       padding-left: 2rem;
     }
@@ -676,41 +385,138 @@
       margin-bottom: 0.5rem;
     }
 
-    .article-content code {
-      background: var(--bg-card);
-      padding: 0.2rem 0.5rem;
-      border-radius: 0.25rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.875rem;
+    .article-content blockquote {
+      border-left: 2px solid var(--text);
+      padding-left: 2rem;
+      margin: 2rem 0;
+      font-style: italic;
+      color: var(--text);
     }
 
     .article-content pre {
-      background: var(--bg-card);
+      background: var(--hover);
       padding: 1.5rem;
-      border-radius: 0.5rem;
+      border-radius: 4px;
       overflow-x: auto;
+      margin-bottom: 1.5rem;
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+
+    .article-content code {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.875em;
+    }
+
+    .article-content p code {
+      background: var(--hover);
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+    }
+
+    /* About Page */
+    .about-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 6rem;
+      padding: 4rem 0;
+    }
+
+    .about-text h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .about-text p {
+      color: var(--text-secondary);
+      font-size: 1.125rem;
+      line-height: 1.8;
       margin-bottom: 1.5rem;
     }
 
-    .article-content blockquote {
-      border-left: 4px solid var(--accent);
-      padding-left: 1.5rem;
-      margin: 1.5rem 0;
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .contact-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .contact-link:hover {
+      color: var(--text);
+    }
+
+    .skills {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .skill-item h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .skill-item p {
+      font-size: 0.875rem;
       color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Footer */
+    footer {
+      padding: 4rem;
+      border-top: 1px solid var(--border);
+      margin-top: 6rem;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-text {
+      color: var(--text-muted);
+      font-size: 0.875rem;
     }
 
     /* Mobile Responsive */
     @media (max-width: 768px) {
+      nav {
+        padding: 1.5rem 2rem;
+      }
+
+      .container {
+        padding: 0 2rem;
+      }
+
       .hamburger {
         display: flex;
       }
 
       .nav-links {
         position: fixed;
-        top: 70px;
+        top: 80px;
         left: 0;
         right: 0;
-        background: var(--bg-secondary);
+        background: var(--bg);
         flex-direction: column;
         padding: 2rem;
         gap: 1.5rem;
@@ -727,304 +533,159 @@
         pointer-events: all;
       }
 
-      .hero-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .hero-text h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero-text p {
-        margin: 0 auto 2rem;
-      }
-
-      .tags, .cta-buttons {
-        justify-content: center;
-      }
-
-      .avatar-container {
-        width: 250px;
-        height: 250px;
-      }
-
-      .avatar-inner {
-        font-size: 5rem;
-        inset: 30px;
+      .hero h1 {
+        font-size: clamp(2.5rem, 10vw, 4rem);
       }
 
       .about-content {
         grid-template-columns: 1fr;
+        gap: 3rem;
       }
 
-      .blog-grid {
-        grid-template-columns: 1fr;
+      .article-container {
+        padding: 2rem;
       }
 
-      .article-header h1 {
-        font-size: 1.75rem;
+      .blog-item-title {
+        font-size: 1.375rem;
+      }
+
+      .blog-item-header {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      footer {
+        padding: 2rem;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
       }
     }
 
-    /* Page Views */
-    .page {
-      display: none;
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .page.active {
-      display: block;
-    }
-
-    /* Scroll animations */
     .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease-out;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
+      animation: fadeIn 0.6s ease-out;
     }
   </style>
 </head>
 <body>
-  <div class="bg-grid"></div>
-  <div class="bg-glow bg-glow-1"></div>
-  <div class="bg-glow bg-glow-2"></div>
-
   <nav>
     <div class="nav-content">
-      <div class="logo">AI PM</div>
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="#" class="active" data-page="home">首页</a></li>
-          <li><a href="#" data-page="blog">博客</a></li>
-          <li><a href="#" data-page="about">关于</a></li>
-        </ul>
-        <button class="theme-toggle" id="themeToggle" title="切换主题">
-          <span id="themeIcon">🌙</span>
-        </button>
-        <button class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
+      <a href="#" class="logo" data-page="home">杨大白</a>
+      <ul class="nav-links">
+        <li><a href="#" class="active" data-page="home">首页</a></li>
+        <li><a href="#" data-page="blog">博客</a></li>
+        <li><a href="#" data-page="about">关于</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
   <!-- Home Page -->
   <div id="home" class="page active">
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <div class="hero-text">
-            <h1>我是 <span>杨大白</span><br>AI 产品经理</h1>
-            <p>专注 AI 产品设计与实践，用产品思维探索大模型应用边界，让 AI 技术真正服务于人与业务。</p>
-            <div class="tags">
-              <span class="tag">AI Product</span>
-              <span class="tag">LLM Apps</span>
-              <span class="tag">User Research</span>
-              <span class="tag">Data Analysis</span>
-            </div>
-            <div class="cta-buttons">
-              <a href="#" class="btn btn-primary" data-page="blog">阅读博客</a>
-              <a href="#" class="btn btn-secondary" data-page="about">了解更多</a>
-            </div>
-          </div>
-          <div class="hero-visual">
-            <div class="avatar-container">
-              <div class="avatar-ring"></div>
-              <div class="avatar-ring-2"></div>
-              <div class="avatar-inner">
-                <!-- 替换为你的真实头像：将下面的 emoji 改为 <img src="your-avatar.jpg" alt="杨大白"> -->
-                🤖
-              </div>
-            </div>
-          </div>
+    <div class="container">
+      <section class="hero">
+        <h1>
+          AI 产品经理<br>
+          <span class="highlight">专注产品设计与实践</span>
+        </h1>
+        <p class="hero-subtitle">
+          用产品思维探索大模型应用边界，让 AI 技术真正服务于人与业务。分享 AI 产品设计、LLM 应用开发和用户研究的思考与实践。
+        </p>
+        <div class="hero-tags">
+          <span class="tag">AI Product</span>
+          <span class="tag">LLM Apps</span>
+          <span class="tag">User Research</span>
+          <span class="tag">Data Analysis</span>
         </div>
-      </div>
-    </section>
-
-    <section id="ai-demo">
-      <div class="container">
-        <div class="section-header">
-          <h2>🤖 AI PM 助手</h2>
-          <p>随时为你解答 AI 产品相关问题</p>
-        </div>
-        <div class="ai-demo">
-          <div class="ai-conversation">
-            <div class="ai-message user">如何判断一个 AI 产品是否适合落地？</div>
-            <div class="ai-message assistant">判断 AI 产品落地可行性主要看三点：<br><br>1. <strong>场景匹配度</strong> - 是否有明确的高频场景<br>2. <strong>技术成熟度</strong> - 当前 AI 能力能否满足核心需求<br>3. <strong>商业价值</strong> - 能否带来可量化的收益或效率提升</div>
-            <div class="ai-message user">如何做 AI 产品的用户调研？</div>
-            <div class="ai-message assistant">AI 产品用户调研要注意：<br><br>1. <strong>区分期望与现实</strong> - 用户对 AI 的期望往往偏高<br>2. <strong>关注工作流</strong> - 了解用户当前如何完成任务<br>3. <strong>A/B 测试</strong> - 用数据验证而非纯访谈</div>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
 
   <!-- Blog Page -->
   <div id="blog" class="page">
-    <section class="hero" style="min-height: auto; padding-bottom: 2rem;">
-      <div class="container">
-        <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
-          <h2>📝 博客文章</h2>
-          <p>分享 AI 产品思考与实践</p>
-        </div>
+    <div class="container">
+      <div class="section-header">
+        <h2>博客文章</h2>
+        <p>分享 AI 产品思考与实践</p>
       </div>
-    </section>
-
-    <section style="padding-top: 0;">
-      <div class="container">
-        <div class="blog-grid">
-          <article class="blog-card" onclick="openArticle(1)">
-            <div class="blog-card-meta">
-              <span class="blog-card-category">产品思考</span>
-              <span>2026-03-15</span>
-            </div>
-            <h3>从 0 到 1 构建 AI 产品的思考框架</h3>
-            <p>本文总结了我在多个 AI 项目中沉淀的产品方法论，包括需求挖掘、技术选型、迭代优化等关键环节。</p>
-            <div class="blog-card-footer">
-              <span class="read-time">阅读 8 分钟</span>
-              <span class="read-more">阅读全文 →</span>
-            </div>
-          </article>
-
-          <article class="blog-card" onclick="openArticle(2)">
-            <div class="blog-card-meta">
-              <span class="blog-card-category">LLM 应用</span>
-              <span>2026-02-28</span>
-            </div>
-            <h3>Prompt Engineering 实战技巧</h3>
-            <p>好的 Prompt 是 AI 产品体验的关键。这篇文章分享 10 个我常用的 Prompt 优化技巧。</p>
-            <div class="blog-card-footer">
-              <span class="read-time">阅读 12 分钟</span>
-              <span class="read-more">阅读全文 →</span>
-            </div>
-          </article>
-
-          <article class="blog-card" onclick="openArticle(3)">
-            <div class="blog-card-meta">
-              <span class="blog-card-category">用户研究</span>
-              <span>2026-02-10</span>
-            </div>
-            <h3>AI 产品用户访谈的避坑指南</h3>
-            <p>用户对 AI 的期望往往不切实际，如何在访谈中识别真实需求？这有我的经验总结。</p>
-            <div class="blog-card-footer">
-              <span class="read-time">阅读 6 分钟</span>
-              <span class="read-more">阅读全文 →</span>
-            </div>
-          </article>
-
-          <article class="blog-card" onclick="openArticle(4)">
-            <div class="blog-card-meta">
-              <span class="blog-card-category">行业观察</span>
-              <span>2026-01-20</span>
-            </div>
-            <h3>2026 年 AI 产品趋势预测</h3>
-            <p>基于对国内外 AI 产品的持续观察，我对 2026 年的 AI 产品趋势做了系统预测。</p>
-            <div class="blog-card-footer">
-              <span class="read-time">阅读 10 分钟</span>
-              <span class="read-more">阅读全文 →</span>
-            </div>
-          </article>
-
-          <article class="blog-card" onclick="openArticle(5)">
-            <div class="blog-card-meta">
-              <span class="blog-card-category">产品复盘</span>
-              <span>2026-01-05</span>
-            </div>
-            <h3>一次失败 AI 项目的深度复盘</h3>
-            <p>失败是最好的老师。这篇文章复盘了我主导的一个失败 AI 项目，以及从中获得的关键教训。</p>
-            <div class="blog-card-footer">
-              <span class="read-time">阅读 15 分钟</span>
-              <span class="read-more">阅读全文 →</span>
-            </div>
-          </article>
-
-          <article class="blog-card" onclick="openArticle(6)">
-            <div class="blog-card-meta">
-              <span class="blog-card-category">工具推荐</span>
-              <span>2025-12-18</span>
-            </div>
-            <h3>AI PM 必备工具清单</h3>
-            <p>从原型设计到数据分析，这些工具帮我提升了 3 倍工作效率。</p>
-            <div class="blog-card-footer">
-              <span class="read-time">阅读 7 分钟</span>
-              <span class="read-more">阅读全文 →</span>
-            </div>
-          </article>
-        </div>
+      <div class="blog-list" id="blogList">
+        <!-- Blog items will be generated by JavaScript -->
       </div>
-    </section>
+    </div>
   </div>
 
   <!-- About Page -->
   <div id="about" class="page">
-    <section class="hero" style="min-height: auto; padding-bottom: 2rem;">
-      <div class="container">
-        <div class="section-header">
-          <h2>关于我</h2>
-          <p>一个热爱 AI 与产品的互联网人</p>
-        </div>
+    <div class="container">
+      <div class="section-header">
+        <h2>关于</h2>
       </div>
-    </section>
-
-    <section style="padding-top: 0;">
-      <div class="container">
-        <div class="about-content">
-          <div class="about-text">
-            <h3>👋 你好</h3>
-            <p>我是杨大白，一个专注于 AI 产品方向的互联网产品经理。目前在某科技公司负责 AI 产品研发工作，主导过多个大模型应用的从 0 到 1。</p>
-            <p>在这之前，我在多家公司做过产品经理，从社交产品到企业服务，积累了丰富的产品经验。最近两年，我把重心转向 AI 产品方向，深度参与了几个 AI 项目的全流程。</p>
-            <p>我相信好的 AI 产品应该是：<strong>有用、可用、可规模化</strong>。我的目标是用产品思维让 AI 技术真正服务于人和业务。</p>
-            
-            <div class="contact-links">
-              <a href="mailto:895115762@qq.com" class="contact-link">📧 895115762@qq.com</a>
-              <a href="https://github.com/daihuayang" target="_blank" rel="noopener noreferrer" class="contact-link">🌐 GitHub</a>
-              <a href="#" class="contact-link">💼 LinkedIn</a>
-            </div>
-          </div>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>你好</h3>
+          <p>
+            我是杨大白，一个专注于 AI 产品方向的互联网产品经理。目前在某科技公司负责 AI 产品研发工作，主导过多个大模型应用的从 0 到 1。
+          </p>
+          <p>
+            在这之前，我在多家公司做过产品经理，从社交产品到企业服务，积累了丰富的产品经验。最近两年，我把重心转向 AI 产品方向，深度参与了几个 AI 项目的全流程。
+          </p>
+          <p>
+            我相信好的 AI 产品应该是：有用、可用、可规模化。我的目标是用产品思维让 AI 技术真正服务于人和业务。
+          </p>
           
-          <div class="skills">
-            <h3 style="margin-bottom: 1.5rem;">🎯 核心能力</h3>
-            
-            <div class="skill-item">
-              <h4>AI 产品设计</h4>
-              <p>大模型应用设计、Agent 产品规划、RAG 系统设计</p>
-              <div class="skill-bar"><div class="skill-bar-fill" style="width: 90%;"></div></div>
-            </div>
-
-            <div class="skill-item">
-              <h4>用户研究</h4>
-              <p>需求挖掘、用户访谈、数据分析、AB 测试</p>
-              <div class="skill-bar"><div class="skill-bar-fill" style="width: 85%;"></div></div>
-            </div>
-
-            <div class="skill-item">
-              <h4>技术理解</h4>
-              <p>LLM 原理、Prompt Engineering、模型评估</p>
-              <div class="skill-bar"><div class="skill-bar-fill" style="width: 75%;"></div></div>
-            </div>
-
-            <div class="skill-item">
-              <h4>项目管理</h4>
-              <p>跨团队协作、敏捷开发、里程碑规划</p>
-              <div class="skill-bar"><div class="skill-bar-fill" style="width: 88%;"></div></div>
-            </div>
+          <div class="contact-links">
+            <a href="mailto:895115762@qq.com" class="contact-link">📧 895115762@qq.com</a>
+            <a href="https://github.com/daihuayang" target="_blank" rel="noopener noreferrer" class="contact-link">🌐 GitHub</a>
+            <a href="#" class="contact-link">💼 LinkedIn</a>
+          </div>
+        </div>
+        
+        <div class="skills">
+          <div class="skill-item">
+            <h4>AI 产品设计</h4>
+            <p>大模型应用设计、Agent 产品规划、RAG 系统设计</p>
+          </div>
+          <div class="skill-item">
+            <h4>用户研究</h4>
+            <p>需求挖掘、用户访谈、数据分析、AB 测试</p>
+          </div>
+          <div class="skill-item">
+            <h4>技术理解</h4>
+            <p>LLM 原理、Prompt Engineering、模型评估</p>
+          </div>
+          <div class="skill-item">
+            <h4>项目管理</h4>
+            <p>跨团队协作、敏捷开发、里程碑规划</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   </div>
 
-  <!-- 文章详情页 -->
+  <!-- Article Page -->
   <div id="article-page" class="article-page">
     <div class="article-container">
-      <a class="article-back" onclick="closeArticle()">← 返回博客列表</a>
+      <a class="article-back" onclick="closeArticle()">← 返回</a>
       <div class="article-header">
         <h1 id="article-title"></h1>
         <div class="article-meta">
@@ -1039,33 +700,13 @@
   </div>
 
   <footer>
-    <div class="container">
-      <p>© 2026 杨大白 | 用心做 AI 产品</p>
+    <div class="footer-content">
+      <div class="footer-text">© 2026 杨大白</div>
+      <div class="footer-text">用心做 AI 产品</div>
     </div>
   </footer>
 
   <script>
-    // 主题切换功能
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
-    
-    // 加载保存的主题
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme);
-    
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      updateThemeIcon(newTheme);
-    });
-    
-    function updateThemeIcon(theme) {
-      themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
-    }
-
     // 汉堡菜单
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.querySelector('.nav-links');
@@ -1104,13 +745,15 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // 文章内容数据
-    const articles = {
-      1: {
+    // 文章数据
+    const articles = [
+      {
+        id: 1,
         title: '从 0 到 1 构建 AI 产品的思考框架',
         date: '2026-03-15',
         category: '产品思考',
-        readTime: '阅读 8 分钟',
+        readTime: '8 分钟',
+        desc: '总结了我在多个 AI 项目中沉淀的产品方法论，包括需求挖掘、技术选型、迭代优化等关键环节。',
         content: `
           <p>在经历了多个 AI 项目的打磨后，我总结出了一套适用于 AI 产品从 0 到 1 的思考框架。这套框架帮助我在面对不确定性时，能够系统性地分析和决策。</p>
           
@@ -1153,11 +796,13 @@
           <p>这套框架不是一成不变的，但它可以作为一个起点，帮助你更系统地思考 AI 产品的构建过程。</p>
         `
       },
-      2: {
+      {
+        id: 2,
         title: 'Prompt Engineering 实战技巧',
         date: '2026-02-28',
         category: 'LLM 应用',
-        readTime: '阅读 12 分钟',
+        readTime: '12 分钟',
+        desc: '好的 Prompt 是 AI 产品体验的关键。分享 10 个我常用的 Prompt 优化技巧。',
         content: `
           <p>Prompt 是 AI 产品体验的核心。一个好的 Prompt 能让模型表现提升数倍。以下是我在实践中总结的 10 个技巧。</p>
           
@@ -1208,11 +853,13 @@
           <blockquote>记住：Prompt Engineering 不是一次性工作，而是持续的优化过程。</blockquote>
         `
       },
-      3: {
+      {
+        id: 3,
         title: 'AI 产品用户访谈的避坑指南',
         date: '2026-02-10',
         category: '用户研究',
-        readTime: '阅读 6 分钟',
+        readTime: '6 分钟',
+        desc: '用户对 AI 的期望往往不切实际，如何在访谈中识别真实需求？经验总结。',
         content: `
           <p>AI 产品的用户访谈与传统产品有很大不同。用户对 AI 的认知和期望往往不切实际，如何在访谈中识别真实需求？这是我的经验总结。</p>
 
@@ -1251,11 +898,13 @@
           <blockquote>用户调研的核心：听其言，观其行，算其值。</blockquote>
         `
       },
-      4: {
+      {
+        id: 4,
         title: '2026 年 AI 产品趋势预测',
         date: '2026-01-20',
         category: '行业观察',
-        readTime: '阅读 10 分钟',
+        readTime: '10 分钟',
+        desc: '基于对国内外 AI 产品的持续观察，对 2026 年的 AI 产品趋势做了系统预测。',
         content: `
           <p>基于对国内外 AI 产品的持续观察，我对 2026 年的 AI 产品趋势做出以下预测。</p>
 
@@ -1299,11 +948,13 @@
           <blockquote>2026 年，AI 产品将从「惊艳」走向「实用」，从「玩具」变成「工具」。</blockquote>
         `
       },
-      5: {
+      {
+        id: 5,
         title: '一次失败 AI 项目的深度复盘',
         date: '2026-01-05',
         category: '产品复盘',
-        readTime: '阅读 15 分钟',
+        readTime: '15 分钟',
+        desc: '复盘了我主导的一个失败 AI 项目，以及从中获得的关键教训。',
         content: `
           <p>失败是最好的老师。这篇文章复盘了我主导的一个失败 AI 项目，以及从中获得的关键教训。希望能帮助其他 AI 产品经理避坑。</p>
 
@@ -1351,11 +1002,13 @@
           <blockquote>这个失败项目是我职业生涯最宝贵的一课。它让我明白：做 AI 产品，敬畏之心比技术自信更重要。</blockquote>
         `
       },
-      6: {
+      {
+        id: 6,
         title: 'AI PM 必备工具清单',
         date: '2025-12-18',
         category: '工具推荐',
-        readTime: '阅读 7 分钟',
+        readTime: '7 分钟',
+        desc: '从原型设计到数据分析，这些工具帮我提升了 3 倍工作效率。',
         content: `
           <p>作为 AI 产品经理，除了传统的产品工具，还需要掌握一些 AI 特定的工具。以下是我日常使用的工具清单。</p>
 
@@ -1397,32 +1050,43 @@
           <blockquote>工具只是手段，关键是用产品思维解决用户问题。但好工具确实能提升 3 倍工作效率。</blockquote>
         `
       }
-    };
+    ];
+
+    // 生成博客列表
+    function renderBlogList() {
+      const blogList = document.getElementById('blogList');
+      blogList.innerHTML = articles.map(article => `
+        <a class="blog-item" onclick="openArticle(${article.id})">
+          <div class="blog-item-header">
+            <h3 class="blog-item-title">${article.title}</h3>
+            <span class="blog-item-date">${article.date}</span>
+          </div>
+          <div class="blog-item-meta">
+            <span class="blog-item-category">${article.category}</span>
+            <span class="blog-item-desc">${article.desc}</span>
+          </div>
+        </a>
+      `).join('');
+    }
 
     // 打开文章
     function openArticle(id) {
-      const article = articles[id];
+      const article = articles.find(a => a.id === id);
       if (!article) return;
 
-      // 填充文章内容
       document.getElementById('article-title').textContent = article.title;
       document.getElementById('article-date').textContent = article.date;
       document.getElementById('article-category').textContent = article.category;
       document.getElementById('article-readtime').textContent = article.readTime;
       document.getElementById('article-content').innerHTML = article.content;
 
-      // 隐藏其他页面，显示文章页
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.getElementById('article-page').classList.add('active');
 
-      // 更新导航状态
       document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
       document.querySelector('.nav-links a[data-page="blog"]')?.classList.add('active');
 
-      // 滚动到顶部
       window.scrollTo({ top: 0, behavior: 'smooth' });
-
-      // 更新 URL（可选）
       history.pushState({ articleId: id }, '', '#article-' + id);
     }
 
@@ -1445,30 +1109,8 @@
       }
     });
 
-    // 滚动动画
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // 技能条动画
-    const skillObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const bar = entry.target.querySelector('.skill-bar-fill');
-          if (bar) {
-            bar.style.width = bar.style.width;
-          }
-        }
-      });
-    }, { threshold: 0.5 });
-
-    document.querySelectorAll('.skill-item').forEach(item => skillObserver.observe(item));
+    // 初始化
+    renderBlogList();
   </script>
 </body>
 </html>
