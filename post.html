@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>文章详情 · 夜小白</title>
-  <meta name="description" content="夜小白的博客文章">
+  <title>文章详情 · 夜白</title>
+  <meta name="description" content="夜白的博客文章">
   <meta name="theme-color" content="#0B0B0E">
 
   <!-- Favicon -->
@@ -31,7 +31,7 @@
 
     <!-- Header -->
     <header class="nav">
-      <a href="/" class="nav__brand" aria-label="夜小白 · AI 产品经理">
+      <a href="/" class="nav__brand" aria-label="夜白 · AI 产品经理">
         <span class="brand-logo brand-logo--horizontal"></span>
       </a>
       <div class="nav__links">
@@ -53,64 +53,32 @@
       <!-- Article Header -->
       <header class="post-header">
         <div class="post-header__meta">
-          <span class="post-header__category" id="postCategory">AI 产品</span>
-          <span class="post-header__date" id="postDate">2026.04.15</span>
+          <span class="post-header__category" id="postCategory">加载中...</span>
+          <span class="post-header__date" id="postDate">--</span>
         </div>
-        <h1 class="post-header__title" id="postTitle">大模型应用的产品设计原则：从 prompt 工程到用户体验</h1>
+        <h1 class="post-header__title" id="postTitle">加载中...</h1>
         <div class="post-header__stats">
           <span class="post-header__stat">
             <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
               <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.2" fill="none"/>
               <path d="M8 4v4l3 2" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="square"/>
             </svg>
-            <span id="readTime">8 分钟阅读</span>
+            <span id="readTime">-- 分钟阅读</span>
           </span>
           <span class="post-header__divider"></span>
-          <span class="post-header__stat" id="viewCount">1,234 次阅读</span>
+          <span class="post-header__stat" id="viewCount">0 次阅读</span>
         </div>
       </header>
 
       <!-- Article Content -->
       <article class="post-content" id="postContent">
-        <p class="post-lead">在构建基于大语言模型的产品时，技术实现只是第一步，真正的挑战在于如何将复杂的技术能力转化为用户可理解、可信赖的产品体验。</p>
-
-        <h2>一、从 Prompt 工程到产品语言</h2>
-        <p>Prompt 工程是开发者的语言，但用户不需要理解什么是「few-shot learning」或「chain-of-thought」。优秀的产品设计应该：</p>
-        <ul>
-          <li><strong>隐藏复杂性</strong>：将 prompt 模板化，让用户通过简单的界面操作即可触发复杂的 AI 能力</li>
-          <li><strong>提供引导</strong>：通过示例、提示和渐进式披露帮助用户理解如何与 AI 有效交互</li>
-          <li><strong>建立心智模型</strong>：让用户理解 AI 能做什么、不能做什么，以及为什么会出现某些结果</li>
-        </ul>
-
-        <h2>二、不确定性管理</h2>
-        <p>AI 输出的不确定性是产品设计的核心挑战。我们需要在界面中明确传达：</p>
-        <blockquote>
-          "用户需要知道什么时候可以信任 AI，什么时候需要人工复核。"
-        </blockquote>
-        <p>具体策略包括：置信度指示器、来源引用、可编辑的输出结果，以及清晰的人工介入点。</p>
-
-        <h2>三、反馈循环的设计</h2>
-        <p>AI 产品需要建立有效的反馈机制来持续改进。这不仅包括显式的点赞/点踩按钮，还应该考虑：</p>
-        <ul>
-          <li>隐式反馈：用户是否采纳了 AI 的建议？是否进行了修改？</li>
-          <li>上下文反馈：收集反馈时记录当时的输入和输出</li>
-          <li>闭环反馈：让用户看到他们的反馈如何改善了产品</li>
-        </ul>
-
-        <h2>四、渐进式智能</h2>
-        <p>不要试图一次性展示 AI 的所有能力。采用渐进式智能的策略：</p>
-        <ol>
-          <li>从单一、明确的场景开始</li>
-          <li>在用户成功使用后逐步引入更复杂的功能</li>
-          <li>根据用户行为个性化 AI 的参与程度</li>
-        </ol>
-
-        <h2>结语</h2>
-        <p>大模型技术正在快速演进，但产品设计的核心原则保持不变：理解用户需求，创造流畅体验，建立信任关系。技术是实现手段，用户价值才是最终目标。</p>
+        <div class="content-loading">
+          <p>加载文章内容...</p>
+        </div>
       </article>
 
       <!-- Post Navigation -->
-      <nav class="post-nav">
+      <nav class="post-nav" id="postNav">
         <a href="#" class="post-nav__link post-nav__link--prev" id="prevPost">
           <span class="post-nav__label">
             <svg width="14" height="10" viewBox="0 0 14 10" aria-hidden="true">
@@ -118,7 +86,7 @@
             </svg>
             上一篇
           </span>
-          <span class="post-nav__title" id="prevPostTitle">AI 时代的交互设计范式转变</span>
+          <span class="post-nav__title" id="prevPostTitle">-</span>
         </a>
         <a href="#" class="post-nav__link post-nav__link--next" id="nextPost">
           <span class="post-nav__label">
@@ -127,7 +95,7 @@
               <path d="M0 5h12m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="square"/>
             </svg>
           </span>
-          <span class="post-nav__title" id="nextPostTitle">构建企业级 AI 助手：从 0 到 1 的产品实践</span>
+          <span class="post-nav__title" id="nextPostTitle">-</span>
         </a>
       </nav>
 

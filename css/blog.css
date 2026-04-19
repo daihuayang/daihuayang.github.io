@@ -529,7 +529,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 1px;
   margin: 4rem 0;
-  background: var(--hairline);
+  /*background: var(--hairline);*/
 }
 
 .post-nav__link {
