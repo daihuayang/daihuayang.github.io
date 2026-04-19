@@ -49,6 +49,14 @@
       metaDesc.setAttribute('content', post.excerpt);
     }
 
+    // 更新 Open Graph 标签
+    const ogTitle = document.getElementById('ogTitle');
+    const ogDesc = document.getElementById('ogDesc');
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogTitle) ogTitle.setAttribute('content', post.title);
+    if (ogDesc) ogDesc.setAttribute('content', post.excerpt);
+    if (ogUrl) ogUrl.setAttribute('content', window.location.href);
+
     // 更新文章头部
     document.getElementById('postCategory').textContent = post.categoryLabel;
     document.getElementById('postDate').textContent = post.date;

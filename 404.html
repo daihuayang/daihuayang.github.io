@@ -4,29 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 - 页面未找到 | 夜白</title>
-  <style>
-    body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      background: #0a0a0f;
-      color: #f1f1f3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-    }
-    .container { text-align: center; }
-    h1 { font-size: 6rem; margin: 0; background: linear-gradient(135deg, #6366f1, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    p { color: #a1a1aa; margin: 1rem 0 2rem; }
-    a { color: #6366f1; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-  </style>
+  <meta name="theme-color" content="#0B0B0E">
+  <link rel="icon" type="image/png" href="./assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>404</h1>
-    <p>页面不存在</p>
-    <a href="/">← 返回首页</a>
+  <div class="bg-halftone" aria-hidden="true"></div>
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div class="bg-grain" aria-hidden="true"></div>
+  <div class="bg-vignette" aria-hidden="true"></div>
+
+  <div class="shell">
+    <div class="page-404">
+      <h1 class="page-404__code">404</h1>
+      <p class="page-404__message">页面不存在</p>
+      <a href="/" class="page-404__link">← 返回首页</a>
+    </div>
   </div>
+
+  <script src="js/app.js"></script>
 </body>
 </html>
