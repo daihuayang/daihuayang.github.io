@@ -280,8 +280,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   top: 50%;
   left: 50%;
   transform: translate(-50%, calc(-50% + var(--py, 0px)));
-  width: clamp(220px, 30vw, 340px);
-  height: clamp(220px, 30vw, 340px);
+  width: clamp(390px, 55vw, 630px);
+  height: clamp(390px, 55vw, 630px);
   animation: markIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
   z-index: 12;
   /* parallax offset driven by CSS vars set from JS */
@@ -295,10 +295,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 /* halo glow */
 .mark-halo {
   position: absolute;
-  inset: -30%;
+  inset: -70%;
   border-radius: 50%;
-  background: radial-gradient(circle at center, rgba(230, 0, 18, 0.18) 0%, transparent 70%);
-  filter: blur(24px);
+  background: radial-gradient(circle at center, rgba(230, 0, 18, 0.25) 0%, transparent 70%);
+  filter: blur(50px);
   animation: haloBreath 5s ease-in-out infinite;
 }
 
@@ -345,6 +345,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .mark-icon {
   width: 100%;
   height: 100%;
+  transition: opacity 0.3s ease;
 }
 
 .mark-icon svg {

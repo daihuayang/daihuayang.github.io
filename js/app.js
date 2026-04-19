@@ -101,6 +101,7 @@
   function tick(now) {
     const dt = Math.min(0.05, (now - last) / 1000);
     last = now;
+
     ctx.clearRect(0, 0, W, H);
 
     for (const s of shards) {
@@ -124,8 +125,8 @@
       if (s.x < -60) s.x = W + 60; else if (s.x > W + 60) s.x = -60;
       if (s.y < -60) s.y = H + 60; else if (s.y > H + 60) s.y = -60;
       draw(s);
-
     }
+
     requestAnimationFrame(tick);
   }
 
