@@ -1,5 +1,5 @@
 /* ============================================================
-   杨大白 - AI 产品经理博客
+   夜白 - AI博客
    设计风格参考 virxact.com
    ============================================================ */
 
@@ -427,7 +427,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   font-family: var(--font-display);
   line-height: 0.9;
   letter-spacing: -0.01em;
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(1rem, 2vw, 2.5rem);
   color: #EDE8DD;
 }
 .wordmark__en { font-family: var(--font-display); }
@@ -438,8 +438,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .wordmark__cn {
   font-family: var(--font-cn);
-  font-weight: 900;
-  font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+  font-weight: 700;
+  font-size: clamp(1rem, 2vw, 2.5rem);
   letter-spacing: 0.02em;
 }
 

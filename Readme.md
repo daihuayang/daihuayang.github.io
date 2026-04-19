@@ -1,4 +1,4 @@
-# AI 产品经理 | 杨大白
+# AI | 夜白
 一个专注于 AI 产品设计与实践的个人博客网站。
 ## 🌐 访问地址
 - GitHub Pages: https://daihuayang.github.io
