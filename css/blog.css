@@ -6,10 +6,17 @@
    页面布局覆盖
    ============================================================ */
 .shell--page {
-  height: auto;
-  min-height: 100vh;
-  min-height: 100svh;
-  overflow: visible;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  position: relative;
+}
+
+.shell--page .page-main {
+  flex: 1;
+  overflow-y: auto;
+  height: 0;
+  min-height: 0;
 }
 
 /* ============================================================
