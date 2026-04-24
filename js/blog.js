@@ -13,7 +13,7 @@
   // ============================== 加载文章数据 ==============================
   async function loadPosts() {
     try {
-      const response = await fetch('./data/posts.json');
+      const response = await fetch(`./data/posts.json?v=${Date.now()}`);
       const data = await response.json();
       allPosts = data.posts || [];
       renderPosts();
